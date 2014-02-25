@@ -51,3 +51,4 @@ The plugin replaces the standard WordPress `wp_mail()` function with an empty fu
 
 = 1.0.0 [2014-02-18] =
 * initial release
+
