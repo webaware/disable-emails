@@ -7,7 +7,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: disable emails, block emails
 Requires at least: 3.6.1
 Tested up to: 3.8.1
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,10 @@ You probably have a plugin that is sending emails via some other method, like di
 The plugin replaces the standard WordPress `wp_mail()` function with an empty function, which does nothing. Nada. Zip. Silence.
 
 == Changelog ==
+
+= 1.1.0 [2014-02-25] =
+* fixed: `wp_mail()` now returns true, simulating a successful email attempt
+* added: support filter hook `wp_mail` so that listeners can act, e.g. log emails (even though they will not be sent); can be turned off in settings
 
 = 1.0.0 [2014-02-18] =
 * initial release
