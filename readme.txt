@@ -6,8 +6,8 @@ Author URI: http://webaware.com.au/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3QCACKDYDV6VN
 Tags: disable emails, block emails
 Requires at least: 3.6.1
-Tested up to: 3.8.1
-Stable tag: 1.1.0
+Tested up to: 3.9
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,13 +37,18 @@ You probably have another plugin that adds its own implementation of the `wp_mai
 
 = Standard WordPress emails have stopped, but some others still get sent =
 
-You probably have a plugin that is sending emails via some other method, like directly using the PHP `mail()` function, or SMTP. Not much I can do about that...
+You probably have a plugin that is sending emails via some other method, like directly using the PHP `mail()` function, or directly implementing an SMTP client. Not much I can do about that...
 
 = How does it work? =
 
-The plugin replaces the standard WordPress `wp_mail()` function with an empty function, which does nothing. Nada. Zip. Silence.
+The plugin replaces the standard WordPress `wp_mail()` function with a function that sends no emails. Nada. Zip. Silence.
+
+Behind the scenes, it creates a private copy of PHPMailer and allows the system to interact with it, but silently suppresses the functions that send emails. The standard WordPress filter and action hooks are supported, so plugins that register hooks for those will still function as normal. It just doesn't actually send any emails.
 
 == Changelog ==
+
+= 1.2.0 [2014-04-19] =
+* changed: refactored to fully support filter and action hooks that other plugins might use to listen to and modify emails, e.g. so that email loggers can properly record what would have been sent
 
 = 1.1.0 [2014-02-25] =
 * fixed: `wp_mail()` now returns true, simulating a successful email attempt
@@ -51,4 +56,3 @@ The plugin replaces the standard WordPress `wp_mail()` function with an empty fu
 
 = 1.0.0 [2014-02-18] =
 * initial release
-

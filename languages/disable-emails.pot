@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disable-emails\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-25 16:43+1000\n"
-"PO-Revision-Date: 2014-02-25 16:43+1000\n"
+"POT-Creation-Date: 2014-04-19 10:24+1000\n"
+"PO-Revision-Date: 2014-04-19 10:24+1000\n"
 "Last-Translator: Ross McKay <rmckay@webaware.com.au>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -27,9 +27,9 @@ msgid "Disable Emails settings"
 msgstr ""
 
 #: ../views/settings-form.php:17
-msgid "Call filter wp_mail"
+msgid "Call WordPress hooks"
 msgstr ""
 
-#: ../views/settings-form.php:21
-msgid "call the wp_mail filter so that listeners can act, e.g. log emails"
+#: ../views/settings-form.php:19
+msgid "call WordPress hooks so that listeners can act, e.g. log emails"
 msgstr ""

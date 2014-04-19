@@ -14,12 +14,15 @@ global $wp_version;
 		<table class="form-table">
 
 			<tr valign="top">
-				<th scope="row"><?php _e('Call filter wp_mail', 'disable-emails'); ?></th>
+				<th scope="row"><?php _e('Call WordPress hooks', 'disable-emails'); ?></th>
 				<td>
-					<label>
-						<input type="checkbox" name="disable_emails[callFilterWpMail]" value="1" <?php checked($options['callFilterWpMail']); ?> />
-						<em><?php _e('call the wp_mail filter so that listeners can act, e.g. log emails', 'disable-emails'); ?></em>
-					</label>
+					<em><?php _e('call WordPress hooks so that listeners can act, e.g. log emails', 'disable-emails'); ?></em>
+					<br /><label><input type="checkbox" name="disable_emails[wp_mail]" value="1" <?php checked($options['wp_mail']); ?> /> wp_mail</label>
+					<br /><label><input type="checkbox" name="disable_emails[wp_mail_from]" value="1" <?php checked($options['wp_mail_from']); ?> /> wp_mail_from</label>
+					<br /><label><input type="checkbox" name="disable_emails[wp_mail_from_name]" value="1" <?php checked($options['wp_mail_from_name']); ?> /> wp_mail_from_name</label>
+					<br /><label><input type="checkbox" name="disable_emails[wp_mail_content_type]" value="1" <?php checked($options['wp_mail_content_type']); ?> /> wp_mail_content_type</label>
+					<br /><label><input type="checkbox" name="disable_emails[wp_mail_charset]" value="1" <?php checked($options['wp_mail_charset']); ?> /> wp_mail_charset</label>
+					<br /><label><input type="checkbox" name="disable_emails[phpmailer_init]" value="1" <?php checked($options['phpmailer_init']); ?> /> phpmailer_init</label>
 				</td>
 			</tr>
 
