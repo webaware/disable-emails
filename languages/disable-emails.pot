@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disable-emails\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-19 10:24+1000\n"
-"PO-Revision-Date: 2014-04-19 10:24+1000\n"
+"POT-Creation-Date: 2014-06-22 11:05+1000\n"
+"PO-Revision-Date: 2014-06-22 11:06+1000\n"
 "Last-Translator: Ross McKay <rmckay@webaware.com.au>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -22,6 +22,23 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: ..\n"
 
+#: ../includes/class.DisableEmailsPlugin.php:122
+msgid "Get help"
+msgstr ""
+
+#: ../includes/class.DisableEmailsPlugin.php:123
+msgid "Rating"
+msgstr ""
+
+#: ../includes/class.DisableEmailsPlugin.php:124
+msgctxt "translate from English"
+msgid "Translate"
+msgstr ""
+
+#: ../includes/class.DisableEmailsPlugin.php:125
+msgid "Donate"
+msgstr ""
+
 #: ../views/settings-form.php:9
 msgid "Disable Emails settings"
 msgstr ""
@@ -32,4 +49,10 @@ msgstr ""
 
 #: ../views/settings-form.php:19
 msgid "call WordPress hooks so that listeners can act, e.g. log emails"
+msgstr ""
+
+#: ../views/warn-already-defined.php:3
+msgid ""
+"Emails are not disabled! Something else has already declared wp_mail(), so "
+"Disable Emails cannot stop emails being sent!"
 msgstr ""

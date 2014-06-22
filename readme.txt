@@ -1,13 +1,13 @@
 === Disable Emails ===
 Contributors: webaware
 Plugin Name: Disable Emails
-Plugin URI: http://wordpress.org/plugins/disable-emails/
+Plugin URI: http://shop.webaware.com.au/downloads/disable-emails/
 Author URI: http://webaware.com.au/
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3QCACKDYDV6VN
+Donate link: http://shop.webaware.com.au/downloads/disable-emails/
 Tags: disable emails, block emails
 Requires at least: 3.6.1
-Tested up to: 3.9
-Stable tag: 1.2.0
+Tested up to: 3.9.1
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,7 @@ Stop WordPress from sending any emails. ANY!
 
 == Description ==
 
-Stop a WordPress website from sending any emails using the standard [wp_mail()]() function. No emails will be sent, not even for password resets or administrator notifications.
+Stop a WordPress website from sending any emails using the standard [wp_mail()](http://codex.wordpress.org/Function_Reference/wp_mail) function. No emails will be sent, not even for password resets or administrator notifications.
 
 WordPress websites can send emails for a variety of reasons -- e.g user registration, password reset, enquiry form submission, e-commerce purchase -- but sometimes you don't want it to send anything at all. Some reasons for disabling all emails:
 
@@ -23,6 +23,10 @@ WordPress websites can send emails for a variety of reasons -- e.g user registra
 * development / test websites with live data that might email real customers
 * bulk-loading data into websites which might trigger emails
 * adding new sites into multisite installations
+
+If you'd like to help out by translating this plugin, please sign up for an account and dig in:
+
+* [translate.webaware.com.au/projects/edd-free-link](http://translate.webaware.com.au/projects/disable-emails)
 
 == Installation ==
 
@@ -46,6 +50,9 @@ The plugin replaces the standard WordPress `wp_mail()` function with a function 
 Behind the scenes, it creates a private copy of PHPMailer and allows the system to interact with it, but silently suppresses the functions that send emails. The standard WordPress filter and action hooks are supported, so plugins that register hooks for those will still function as normal. It just doesn't actually send any emails.
 
 == Changelog ==
+
+= 1.2.1 [2014-06-22] =
+* added: warn when wp_mail() can't be replaced, so admin knows that emails cannot be disabled
 
 = 1.2.0 [2014-04-19] =
 * changed: refactored to fully support filter and action hooks that other plugins might use to listen to and modify emails, e.g. so that email loggers can properly record what would have been sent

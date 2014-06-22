@@ -7,6 +7,8 @@ class DisableEmailsPlugin {
 
 	public $options;
 
+	protected $wpmailReplaced = false;
+
 	/**
 	* static method for getting the instance of this singleton object
 	* @return self
@@ -55,13 +57,15 @@ class DisableEmailsPlugin {
 		add_action('init', array($this, 'init'));
 		add_action('admin_init', array($this, 'adminInit'));
 		add_action('admin_menu', array($this, 'adminMenu'));
+		add_action('admin_notices', array($this, 'showWarningAlreadyDefined'));
+		add_filter('plugin_row_meta', array($this, 'addPluginDetailsLinks'), 10, 2);
 	}
 
 	/**
 	* init action
 	*/
 	public function init() {
-		load_plugin_textdomain('disable-emails', false, basename(dirname(__FILE__)) . '/languages/');
+		load_plugin_textdomain('disable-emails', false, basename(dirname(DISABLE_EMAILS_PLUGIN_FILE)) . '/languages/');
 	}
 
 	/**
@@ -110,6 +114,37 @@ class DisableEmailsPlugin {
 		return $output;
 	}
 
+	/**
+	* action hook for adding plugin details links
+	*/
+	public function addPluginDetailsLinks($links, $file) {
+		if ($file == DISABLE_EMAILS_PLUGIN_NAME) {
+			$links[] = '<a href="http://wordpress.org/support/plugin/disable-emails">' . __('Get help', 'disable-emails') . '</a>';
+			$links[] = '<a href="http://wordpress.org/plugins/disable-emails/">' . __('Rating', 'disable-emails') . '</a>';
+			$links[] = '<a href="http://translate.webaware.com.au/projects/disable-emails">' . _x('Translate', 'translate from English', 'disable-emails') . '</a>';
+			$links[] = '<a href="http://shop.webaware.com.au/downloads/disable-emails/">' . __('Donate', 'disable-emails') . '</a>';
+		}
+
+		return $links;
+	}
+
+	/**
+	* warn that wp_mail() is defined so emails cannot be disabled!
+	*/
+	public function showWarningAlreadyDefined() {
+		if (!$this->wpmailReplaced) {
+			include DISABLE_EMAILS_PLUGIN_ROOT . 'views/warn-already-defined.php';
+		}
+	}
+
+	/**
+	* wp_mail() was successfully replaced, so we can activate disabling emails
+	*/
+	public static function setActive() {
+		include DISABLE_EMAILS_PLUGIN_ROOT . 'includes/class.DisableEmailsPHPMailerMock.php';
+
+		$plugin = self::getInstance();
+		$plugin->wpmailReplaced = true;
+	}
+
 }
-
-
