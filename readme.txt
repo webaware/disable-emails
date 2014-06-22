@@ -49,6 +49,11 @@ The plugin replaces the standard WordPress `wp_mail()` function with a function 
 
 Behind the scenes, it creates a private copy of PHPMailer and allows the system to interact with it, but silently suppresses the functions that send emails. The standard WordPress filter and action hooks are supported, so plugins that register hooks for those will still function as normal. It just doesn't actually send any emails.
 
+== Contributions ==
+
+* [Translate into your preferred language](http://translate.webaware.com.au/projects/disable-emails)
+* [Fork me on GitHub](https://github.com/webaware/disable-emails)
+
 == Changelog ==
 
 = 1.2.1 [2014-06-22] =
