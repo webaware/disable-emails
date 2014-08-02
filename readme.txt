@@ -6,7 +6,7 @@ Author URI: http://webaware.com.au/
 Donate link: http://shop.webaware.com.au/downloads/disable-emails/
 Tags: disable emails, block emails
 Requires at least: 3.6.1
-Tested up to: 3.9.1
+Tested up to: 4.0
 Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,9 +24,7 @@ WordPress websites can send emails for a variety of reasons -- e.g user registra
 * bulk-loading data into websites which might trigger emails
 * adding new sites into multisite installations
 
-If you'd like to help out by translating this plugin, please sign up for an account and dig in:
-
-* [translate.webaware.com.au/projects/edd-free-link](http://translate.webaware.com.au/projects/disable-emails)
+If you'd like to help out by translating this plugin, please [sign up for an account and dig in](http://translate.webaware.com.au/projects/disable-emails).
 
 == Installation ==
 
