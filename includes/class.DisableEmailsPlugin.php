@@ -40,7 +40,7 @@ class DisableEmailsPlugin {
 
 		if (isset($this->options['callFilterWpMail'])) {
 			// upgrade old wp_mail option to one option per hook name, matching old setting
-			foreach ($defaults as $key => $value) {
+			foreach (array_keys($defaults) as $key) {
 				$this->options[$key] = $this->options['callFilterWpMail'];
 			}
 			unset($this->options['callFilterWpMail']);
@@ -119,10 +119,10 @@ class DisableEmailsPlugin {
 	*/
 	public function addPluginDetailsLinks($links, $file) {
 		if ($file == DISABLE_EMAILS_PLUGIN_NAME) {
-			$links[] = '<a href="http://wordpress.org/support/plugin/disable-emails">' . __('Get help', 'disable-emails') . '</a>';
-			$links[] = '<a href="http://wordpress.org/plugins/disable-emails/">' . __('Rating', 'disable-emails') . '</a>';
-			$links[] = '<a href="http://translate.webaware.com.au/projects/disable-emails">' . _x('Translate', 'translate from English', 'disable-emails') . '</a>';
-			$links[] = '<a href="http://shop.webaware.com.au/downloads/disable-emails/">' . __('Donate', 'disable-emails') . '</a>';
+			$links[] = sprintf('<a href="http://wordpress.org/support/plugin/disable-emails" target="_blank">%s</a>', _x('Get help', 'plugin details links', 'disable-emails'));
+			$links[] = sprintf('<a href="http://wordpress.org/plugins/disable-emails/" target="_blank">%s</a>', _x('Rating', 'plugin details links', 'disable-emails'));
+			$links[] = sprintf('<a href="http://translate.webaware.com.au/projects/disable-emails" target="_blank">%s</a>', _x('Translate', 'plugin details links', 'disable-emails'));
+			$links[] = sprintf('<a href="http://shop.webaware.com.au/downloads/disable-emails/" target="_blank">%s</a>', _x('Donate', 'plugin details links', 'disable-emails'));
 		}
 
 		return $links;

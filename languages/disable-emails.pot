@@ -4,9 +4,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disable-emails\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-22 11:05+1000\n"
-"PO-Revision-Date: 2014-06-22 11:06+1000\n"
-"Last-Translator: Ross McKay <translate@webaware.com.au>\n"
+"POT-Creation-Date: 2014-08-31 18:51+1000\n"
+"PO-Revision-Date: 2014-08-31 18:51+1000\n"
+"Last-Translator: Ross McKay <rmckay@webaware.com.au>\n"
 "Language-Team: \n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
@@ -23,19 +23,22 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../includes/class.DisableEmailsPlugin.php:122
+msgctxt "plugin details links"
 msgid "Get help"
 msgstr ""
 
 #: ../includes/class.DisableEmailsPlugin.php:123
+msgctxt "plugin details links"
 msgid "Rating"
 msgstr ""
 
 #: ../includes/class.DisableEmailsPlugin.php:124
-msgctxt "translate from English"
+msgctxt "plugin details links"
 msgid "Translate"
 msgstr ""
 
 #: ../includes/class.DisableEmailsPlugin.php:125
+msgctxt "plugin details links"
 msgid "Donate"
 msgstr ""
 
