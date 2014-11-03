@@ -7,7 +7,7 @@ Donate link: http://shop.webaware.com.au/downloads/disable-emails/
 Tags: disable emails, block emails
 Requires at least: 3.6.1
 Tested up to: 4.0
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,7 @@ WordPress websites can send emails for a variety of reasons -- e.g user registra
 
 Many thanks to the generous efforts of our translators:
 
+* Czech (cs-CZ) -- ([Rudolf Klusal](http://www.klusik.cz/))
 * Norwegian: Bokmål (nb_NO) -- [neonnero](http://www.neonnero.com/)
 * Norwegian: Nynorsk (nn_NO) -- [neonnero](http://www.neonnero.com/)
 
@@ -60,6 +61,9 @@ Behind the scenes, it creates a private copy of PHPMailer and allows the system 
 * [Fork me on GitHub](https://github.com/webaware/disable-emails)
 
 == Changelog ==
+
+= 1.2.3 [2014-11-03] =
+* added: Czech translation (thanks, [Rudolf Klusal](http://www.klusik.cz/)!)
 
 = 1.2.2 [2014-08-31] =
 * added: Norwegian translations (thanks, [neonnero](http://www.neonnero.com/)!)

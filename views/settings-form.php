@@ -6,7 +6,7 @@ global $wp_version;
 
 <div class="wrap">
 	<?php if (version_compare($wp_version, '3.8', '<')) screen_icon('options-general'); ?>
-	<h2><?php _e('Disable Emails settings', 'disable-emails'); ?></h2>
+	<h2><?php esc_html_e('Disable Emails settings', 'disable-emails'); ?></h2>
 
 	<form action="<?php echo admin_url('options.php'); ?>" method="POST">
 		<?php settings_fields(DISABLE_EMAILS_OPTIONS); ?>
@@ -14,9 +14,9 @@ global $wp_version;
 		<table class="form-table">
 
 			<tr valign="top">
-				<th scope="row"><?php _e('Call WordPress hooks', 'disable-emails'); ?></th>
+				<th scope="row"><?php esc_html_e('Call WordPress hooks', 'disable-emails'); ?></th>
 				<td>
-					<em><?php _e('call WordPress hooks so that listeners can act, e.g. log emails', 'disable-emails'); ?></em>
+					<em><?php esc_html_e('call WordPress hooks so that listeners can act, e.g. log emails', 'disable-emails'); ?></em>
 					<br /><label><input type="checkbox" name="disable_emails[wp_mail]" value="1" <?php checked($options['wp_mail']); ?> /> wp_mail</label>
 					<br /><label><input type="checkbox" name="disable_emails[wp_mail_from]" value="1" <?php checked($options['wp_mail_from']); ?> /> wp_mail_from</label>
 					<br /><label><input type="checkbox" name="disable_emails[wp_mail_from_name]" value="1" <?php checked($options['wp_mail_from_name']); ?> /> wp_mail_from_name</label>
