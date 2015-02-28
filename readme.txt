@@ -7,7 +7,7 @@ Donate link: http://shop.webaware.com.au/downloads/disable-emails/
 Tags: disable emails, block emails
 Requires at least: 3.6.1
 Tested up to: 4.1.1
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,24 +63,24 @@ Behind the scenes, it creates a private copy of PHPMailer and allows the system 
 
 == Changelog ==
 
-= 1.2.4, soon... =
+= 1.2.4, 2015-02-28 =
 * added: German translation (thanks, [Peter Harlacher](http://helvetian.io/)!)
 
-= 1.2.3 [2014-11-03] =
+= 1.2.3, 2014-11-03 =
 * added: Czech translation (thanks, [Rudolf Klusal](http://www.klusik.cz/)!)
 
-= 1.2.2 [2014-08-31] =
+= 1.2.2, 2014-08-31 =
 * added: Norwegian translations (thanks, [neonnero](http://www.neonnero.com/)!)
 
-= 1.2.1 [2014-06-22] =
+= 1.2.1, 2014-06-22 =
 * added: warn when wp_mail() can't be replaced, so admin knows that emails cannot be disabled
 
-= 1.2.0 [2014-04-19] =
+= 1.2.0, 2014-04-19 =
 * changed: refactored to fully support filter and action hooks that other plugins might use to listen to and modify emails, e.g. so that email loggers can properly record what would have been sent
 
-= 1.1.0 [2014-02-25] =
+= 1.1.0, 2014-02-25 =
 * fixed: `wp_mail()` now returns true, simulating a successful email attempt
 * added: support filter hook `wp_mail` so that listeners can act, e.g. log emails (even though they will not be sent); can be turned off in settings
 
-= 1.0.0 [2014-02-18] =
+= 1.0.0, 2014-02-18 =
 * initial release
