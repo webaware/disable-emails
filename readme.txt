@@ -6,7 +6,7 @@ Author URI: http://webaware.com.au/
 Donate link: http://shop.webaware.com.au/downloads/disable-emails/
 Tags: disable emails, block emails
 Requires at least: 3.6.1
-Tested up to: 4.0
+Tested up to: 4.1.1
 Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -33,7 +33,7 @@ Many thanks to the generous efforts of our translators:
 * Norwegian: Bokmål (nb_NO) -- [neonnero](http://www.neonnero.com/)
 * Norwegian: Nynorsk (nn_NO) -- [neonnero](http://www.neonnero.com/)
 
-If you'd like to help out by translating this plugin, please [sign up for an account and dig in](http://translate.webaware.com.au/projects/disable-emails).
+If you'd like to help out by translating this plugin, please [sign up for an account and dig in](https://translate.webaware.com.au/projects/disable-emails).
 
 == Installation ==
 
@@ -58,7 +58,7 @@ Behind the scenes, it creates a private copy of PHPMailer and allows the system 
 
 == Contributions ==
 
-* [Translate into your preferred language](http://translate.webaware.com.au/projects/disable-emails)
+* [Translate into your preferred language](https://translate.webaware.com.au/projects/disable-emails)
 * [Fork me on GitHub](https://github.com/webaware/disable-emails)
 
 == Changelog ==
