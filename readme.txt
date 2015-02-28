@@ -28,7 +28,8 @@ WordPress websites can send emails for a variety of reasons -- e.g user registra
 
 Many thanks to the generous efforts of our translators:
 
-* Czech (cs-CZ) -- ([Rudolf Klusal](http://www.klusik.cz/))
+* Czech (cs-CZ) -- [Rudolf Klusal](http://www.klusik.cz/)
+* German (de-DE) -- [Peter Harlacher](http://helvetian.io/)
 * Norwegian: Bokmål (nb_NO) -- [neonnero](http://www.neonnero.com/)
 * Norwegian: Nynorsk (nn_NO) -- [neonnero](http://www.neonnero.com/)
 
@@ -61,6 +62,9 @@ Behind the scenes, it creates a private copy of PHPMailer and allows the system 
 * [Fork me on GitHub](https://github.com/webaware/disable-emails)
 
 == Changelog ==
+
+= 1.2.4, soon... =
+* added: German translation (thanks, [Peter Harlacher](http://helvetian.io/)!)
 
 = 1.2.3 [2014-11-03] =
 * added: Czech translation (thanks, [Rudolf Klusal](http://www.klusik.cz/)!)
