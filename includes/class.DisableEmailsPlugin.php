@@ -122,7 +122,7 @@ class DisableEmailsPlugin {
 			$links[] = sprintf('<a href="https://wordpress.org/support/plugin/disable-emails" target="_blank">%s</a>', _x('Get help', 'plugin details links', 'disable-emails'));
 			$links[] = sprintf('<a href="https://wordpress.org/plugins/disable-emails/" target="_blank">%s</a>', _x('Rating', 'plugin details links', 'disable-emails'));
 			$links[] = sprintf('<a href="https://translate.webaware.com.au/projects/disable-emails" target="_blank">%s</a>', _x('Translate', 'plugin details links', 'disable-emails'));
-			$links[] = sprintf('<a href="http://shop.webaware.com.au/downloads/disable-emails/" target="_blank">%s</a>', _x('Donate', 'plugin details links', 'disable-emails'));
+			$links[] = sprintf('<a href="http://shop.webaware.com.au/donations/?donation_for=Disable+Emails" target="_blank">%s</a>', _x('Donate', 'plugin details links', 'disable-emails'));
 		}
 
 		return $links;

@@ -9,4 +9,4 @@ Stop WordPress from sending any emails. ANY!
 * [Documentation](https://wordpress.org/plugins/disable-emails/faq/)
 * [Support](https://wordpress.org/support/plugin/disable-emails)
 * [Translate](https://translate.webaware.com.au/projects/disable-emails)
-* [Donate](http://shop.webaware.com.au/downloads/disable-emails/)
+* [Donate](http://shop.webaware.com.au/donations/?donation_for=Disable+Emails)
