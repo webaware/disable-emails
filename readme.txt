@@ -28,8 +28,9 @@ WordPress websites can send emails for a variety of reasons -- e.g user registra
 
 Many thanks to the generous efforts of our translators:
 
-* Chinese (zh-CN) -- Wenwei Zhong
+* Chinese (zh-CN) -- [Cai_Miao](https://profiles.wordpress.org/cai_miao)
 * Czech (cs-CZ) -- [Rudolf Klusal](http://www.klusik.cz/)
+* Japanese (ja) -- [Cai_Miao](https://profiles.wordpress.org/cai_miao)
 * German (de-DE) -- [Peter Harlacher](http://helvetian.io/)
 * Norwegian: Bokmål (nb-NO) -- [neonnero](http://www.neonnero.com/)
 * Norwegian: Nynorsk (nn-NO) -- [neonnero](http://www.neonnero.com/)
@@ -66,7 +67,8 @@ Behind the scenes, it creates a private copy of PHPMailer and allows the system 
 
 = 1.2.5, soon... =
 
-* added: Chinese translation (thanks, Wenwei Zhong!)
+* added: Chinese translation (thanks, [Cai_Miao](https://profiles.wordpress.org/cai_miao)!)
+* added: Japanese translation (thanks, [Cai_Miao](https://profiles.wordpress.org/cai_miao)!)
 
 = 1.2.4, 2015-02-28 =
 
