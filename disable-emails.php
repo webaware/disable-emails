@@ -3,7 +3,7 @@
 Plugin Name: Disable Emails
 Plugin URI: http://shop.webaware.com.au/downloads/disable-emails/
 Description: Stop WordPress from sending any emails. ANY!
-Version: 1.2.5-dev
+Version: 1.2.5
 Author: WebAware
 Author URI: http://webaware.com.au/
 Text Domain: disable-emails

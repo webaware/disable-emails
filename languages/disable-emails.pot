@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disable-emails 1.2.5\n"
 "Report-Msgid-Bugs-To: translate@webaware.com.au\n"
-"POT-Creation-Date: 2015-12-02 17:42+1100\n"
-"PO-Revision-Date: 2015-12-02 17:42+1100\n"
+"POT-Creation-Date: 2015-12-02 18:16+1100\n"
+"PO-Revision-Date: 2015-12-02 18:16+1100\n"
 "Last-Translator: Ross McKay <rmckay@webaware.com.au>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -13,24 +13,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: includes/class.DisableEmailsPlugin.php:126
+#: includes/class.DisableEmailsPlugin.php:127
 msgctxt "plugin details links"
 msgid "Get help"
 msgstr ""
 
-#: includes/class.DisableEmailsPlugin.php:127
+#: includes/class.DisableEmailsPlugin.php:128
 msgctxt "plugin details links"
 msgid "Rating"
 msgstr ""
 
-#: includes/class.DisableEmailsPlugin.php:128
+#: includes/class.DisableEmailsPlugin.php:129
 msgctxt "plugin details links"
 msgid "Translate"
 msgstr ""
 
-#: includes/class.DisableEmailsPlugin.php:129
+#: includes/class.DisableEmailsPlugin.php:130
 msgctxt "plugin details links"
 msgid "Donate"
+msgstr ""
+
+#: includes/class.DisableEmailsPlugin.php:151
+msgid "Emails are disabled."
 msgstr ""
 
 #: views/settings-form.php:10
