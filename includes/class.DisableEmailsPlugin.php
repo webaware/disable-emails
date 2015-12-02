@@ -62,6 +62,7 @@ class DisableEmailsPlugin {
 		add_action('admin_init', array($this, 'adminInit'));
 		add_action('admin_menu', array($this, 'adminMenu'));
 		add_action('admin_notices', array($this, 'showWarningAlreadyDefined'));
+		add_filter('dashboard_glance_items', array($this, 'dashboardStatus'), 99);
 		add_filter('plugin_row_meta', array($this, 'addPluginDetailsLinks'), 10, 2);
 	}
 
@@ -139,6 +140,18 @@ class DisableEmailsPlugin {
 		if (!$this->wpmailReplaced) {
 			include DISABLE_EMAILS_PLUGIN_ROOT . 'views/warn-already-defined.php';
 		}
+	}
+
+	/**
+	* show on admin dashboard that emails have been disabled
+	* @param array $glances
+	*/
+	public function dashboardStatus() {
+		if ($this->wpmailReplaced) {
+			$glances[] = sprintf('<li style="float:none"><i class="dashicons dashicons-email"></i> %s</li>', __('Emails are disabled.', 'disable-emails'));
+		}
+
+		return $glances;
 	}
 
 	/**
