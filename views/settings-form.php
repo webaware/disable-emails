@@ -1,11 +1,12 @@
 <?php
 // settings form
 
-global $wp_version;
+if (!defined('ABSPATH')) {
+	exit;
+}
 ?>
 
 <div class="wrap">
-	<?php if (version_compare($wp_version, '3.8', '<')) screen_icon('options-general'); ?>
 	<h2><?php esc_html_e('Disable Emails settings', 'disable-emails'); ?></h2>
 
 	<form action="<?php echo admin_url('options.php'); ?>" method="POST">

@@ -32,15 +32,12 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-if (!defined('DISABLE_EMAILS_PLUGIN_ROOT')) {
-	define('DISABLE_EMAILS_PLUGIN_FILE', __FILE__);
-	define('DISABLE_EMAILS_PLUGIN_ROOT', dirname(__FILE__) . '/');
-	define('DISABLE_EMAILS_PLUGIN_NAME', basename(dirname(__FILE__)) . '/' . basename(__FILE__));
+define('DISABLE_EMAILS_PLUGIN_FILE', __FILE__);
+define('DISABLE_EMAILS_PLUGIN_ROOT', dirname(__FILE__) . '/');
+define('DISABLE_EMAILS_PLUGIN_NAME', basename(dirname(__FILE__)) . '/' . basename(__FILE__));
 
-	// options
-	define('DISABLE_EMAILS_OPTIONS', 'disable_emails');
-}
-
+// options
+define('DISABLE_EMAILS_OPTIONS', 'disable_emails');
 
 include DISABLE_EMAILS_PLUGIN_ROOT . 'includes/class.DisableEmailsPlugin.php';
 DisableEmailsPlugin::getInstance();

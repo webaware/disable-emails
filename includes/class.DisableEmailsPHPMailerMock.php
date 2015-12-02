@@ -1,5 +1,9 @@
 <?php
 
+if (!defined('ABSPATH')) {
+	exit;
+}
+
 /**
 * mock of PHPMailer, to support hookers that need to access PHPMailer properties
 * uses a private instance of PHPMailer, but doesn't permit sending emails through it
