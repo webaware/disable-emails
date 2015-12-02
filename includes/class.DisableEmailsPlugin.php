@@ -146,7 +146,7 @@ class DisableEmailsPlugin {
 	* show on admin dashboard that emails have been disabled
 	* @param array $glances
 	*/
-	public function dashboardStatus() {
+	public function dashboardStatus($glances) {
 		if ($this->wpmailReplaced) {
 			$glances[] = sprintf('<li style="float:none"><i class="dashicons dashicons-email"></i> %s</li>', __('Emails are disabled.', 'disable-emails'));
 		}
