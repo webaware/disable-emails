@@ -1,0 +1,17 @@
+{
+  "name": "disable-emails",
+  "version": "1.2.5",
+  "description": "Stop WordPress from sending any emails. ANY!",
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-pot": "^0.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webaware/disable-emails"
+  },
+  "author": "WebAware http://webaware.com.au/",
+  "license": "GPLv2 or later",
+  "homepage": "https://wordpress.org/plugins/disable-emails/"
+}
