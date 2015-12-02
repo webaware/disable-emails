@@ -32,12 +32,12 @@ class DisableEmailsPlugin {
 	*/
 	private function __construct() {
 		static $defaults = array (
-			'wp_mail' => 1,
-			'wp_mail_from' => 1,
-			'wp_mail_from_name' => 1,
-			'wp_mail_content_type' => 1,
-			'wp_mail_charset' => 1,
-			'phpmailer_init' => 1,
+			'wp_mail'				=> 1,
+			'wp_mail_from'			=> 1,
+			'wp_mail_from_name'		=> 1,
+			'wp_mail_content_type'	=> 1,
+			'wp_mail_charset'		=> 1,
+			'phpmailer_init'		=> 1,
 		);
 
 		$this->options = (array) get_option(DISABLE_EMAILS_OPTIONS);
