@@ -30,6 +30,7 @@ Many thanks to the generous efforts of our translators:
 
 * Chinese (zh-CN) -- [Cai_Miao](https://profiles.wordpress.org/cai_miao)
 * Czech (cs-CZ) -- [Rudolf Klusal](http://www.klusik.cz/)
+* English (en_CA) -- [Christoph Herr](http://www.christophherr.com/)
 * Japanese (ja) -- [Cai_Miao](https://profiles.wordpress.org/cai_miao)
 * German (de-DE) -- [Peter Harlacher](http://helvetian.io/)
 * Norwegian: Bokmål (nb-NO) -- [neonnero](http://www.neonnero.com/)
