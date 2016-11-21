@@ -1,21 +1,21 @@
 === Disable Emails ===
 Contributors: webaware
 Plugin Name: Disable Emails
-Plugin URI: http://shop.webaware.com.au/downloads/disable-emails/
-Author URI: http://webaware.com.au/
-Donate link: http://shop.webaware.com.au/donations/?donation_for=Disable+Emails
+Plugin URI: https://shop.webaware.com.au/downloads/disable-emails/
+Author URI: https://shop.webaware.com.au/
+Donate link: https://shop.webaware.com.au/donations/?donation_for=Disable+Emails
 Tags: disable emails, block emails
 Requires at least: 3.6.1
 Tested up to: 4.4
 Stable tag: 1.2.5
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Stop WordPress from sending any emails. ANY!
 
 == Description ==
 
-Stop a WordPress website from sending any emails using the standard [wp_mail()](http://codex.wordpress.org/Function_Reference/wp_mail) function. No emails will be sent, not even for password resets or administrator notifications.
+Stop a WordPress website from sending any emails using the standard [wp_mail()](https://codex.wordpress.org/Function_Reference/wp_mail) function. No emails will be sent, not even for password resets or administrator notifications.
 
 WordPress websites can send emails for a variety of reasons -- e.g user registration, password reset, enquiry form submission, e-commerce purchase -- but sometimes you don't want it to send anything at all. Some reasons for disabling all emails:
 
@@ -39,11 +39,11 @@ Many thanks to the generous efforts of our translators:
 * Norwegian: Bokmål (nb-NO) -- [neonnero](http://www.neonnero.com/)
 * Norwegian: Nynorsk (nn-NO) -- [neonnero](http://www.neonnero.com/)
 
-If you'd like to help out by translating this plugin, please [sign up for an account and dig in](https://translate.webaware.com.au/projects/disable-emails).
+If you'd like to help out by translating this plugin, please [sign up for an account and dig in](https://translate.wordpress.org/projects/wp-plugins/disable-emails).
 
 == Installation ==
 
-1. Either install automatically through the WordPress admin, or download the .zip file, unzip to a folder, and upload the folder to your /wp-content/plugins/ directory. Read [Installing Plugins](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins) in the WordPress Codex for details.
+1. Either install automatically through the WordPress admin, or download the .zip file, unzip to a folder, and upload the folder to your /wp-content/plugins/ directory. Read [Installing Plugins](https://codex.wordpress.org/Managing_Plugins#Installing_Plugins) in the WordPress Codex for details.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Frequently Asked Questions ==
@@ -64,7 +64,7 @@ Behind the scenes, it creates a private copy of PHPMailer and allows the system 
 
 == Contributions ==
 
-* [Translate into your preferred language](https://translate.webaware.com.au/projects/disable-emails)
+* [Translate into your preferred language](https://translate.wordpress.org/projects/wp-plugins/disable-emails)
 * [Fork me on GitHub](https://github.com/webaware/disable-emails)
 
 == Upgrade Notice ==
