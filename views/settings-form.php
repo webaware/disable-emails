@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 ?>
 
 <div class="wrap">
-	<h2><?php esc_html_e('Disable Emails settings', 'disable-emails'); ?></h2>
+	<h1><?php esc_html_e('Disable Emails settings', 'disable-emails'); ?></h1>
 
 	<form action="<?php echo admin_url('options.php'); ?>" method="POST">
 		<?php settings_fields(DISABLE_EMAILS_OPTIONS); ?>
@@ -24,6 +24,14 @@ if (!defined('ABSPATH')) {
 					<br /><label><input type="checkbox" name="disable_emails[wp_mail_content_type]" value="1" <?php checked($options['wp_mail_content_type']); ?> /> wp_mail_content_type</label>
 					<br /><label><input type="checkbox" name="disable_emails[wp_mail_charset]" value="1" <?php checked($options['wp_mail_charset']); ?> /> wp_mail_charset</label>
 					<br /><label><input type="checkbox" name="disable_emails[phpmailer_init]" value="1" <?php checked($options['phpmailer_init']); ?> /> phpmailer_init</label>
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<th scope="row"><?php esc_html_e('BuddyPress', 'disable-emails'); ?></th>
+				<td>
+					<input type="checkbox" name="disable_emails[buddypress]" id="disable_emails_buddypress" value="1" <?php checked(!empty($options['buddypress'])); ?> />
+					<label for="disable_emails_buddypress"><?php esc_html_e('force BuddyPress to use WordPress emails so that they can be blocked', 'disable-emails'); ?></label>
 				</td>
 			</tr>
 

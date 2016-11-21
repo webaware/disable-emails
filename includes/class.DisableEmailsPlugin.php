@@ -38,6 +38,7 @@ class DisableEmailsPlugin {
 			'wp_mail_content_type'	=> 1,
 			'wp_mail_charset'		=> 1,
 			'phpmailer_init'		=> 1,
+			'buddypress'			=> 1,
 		);
 
 		$this->options = get_option(DISABLE_EMAILS_OPTIONS, $defaults);
@@ -49,6 +50,11 @@ class DisableEmailsPlugin {
 		add_action('admin_notices', array($this, 'showWarningAlreadyDefined'));
 		add_filter('dashboard_glance_items', array($this, 'dashboardStatus'), 99);
 		add_filter('plugin_row_meta', array($this, 'addPluginDetailsLinks'), 10, 2);
+
+		// maybe stop BuddyPress emails too
+		if (!empty($options['buddypress'])) {
+			add_filter('bp_email_use_wp_mail', '__return_true');
+		}
 	}
 
 	/**
@@ -96,6 +102,7 @@ class DisableEmailsPlugin {
 			'wp_mail_content_type',
 			'wp_mail_charset',
 			'phpmailer_init',
+			'buddypress',
 		);
 		foreach ($hooknames as $name) {
 			$output[$name] = empty($input[$name]) ? 0 : 1;

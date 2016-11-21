@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.3.0, soon...
+
+* added: setting to force BuddyPress to use `wp_mail()` so that its emails can be disabled
+
 ### 1.2.5, 2015-12-02
 
 * added: Chinese translation (thanks, [Cai_Miao](https://profiles.wordpress.org/cai_miao)!)
