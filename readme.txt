@@ -30,8 +30,11 @@ Many thanks to the generous efforts of our translators:
 
 * Chinese (zh-CN) -- [Cai_Miao](https://profiles.wordpress.org/cai_miao)
 * Czech (cs-CZ) -- [Rudolf Klusal](http://www.klusik.cz/)
-* English (en_CA) -- [Christoph Herr](http://www.christophherr.com/)
-* Japanese (ja) -- [Cai_Miao](https://profiles.wordpress.org/cai_miao)
+* Dutch (nl_NL) -- [the Dutch translation team](https://translate.wordpress.org/locale/nl/default/wp-plugins/disable-emails)
+* English (en_CA) -- [the English (Canadian) translation team](https://translate.wordpress.org/locale/en-ca/default/wp-plugins/disable-emails)
+* Korean (ko_KR) -- [the Korean translation team](https://translate.wordpress.org/locale/ko/default/wp-plugins/disable-emails)
+* Russian (ru_RU) -- [the Russian translation team](https://translate.wordpress.org/locale/ru/default/wp-plugins/disable-emails)
+* Japanese (ja) -- [Cai_Miao](https://profiles.wordpress.org/cai_miao) and [the Japanese translation team](https://translate.wordpress.org/locale/ja/default/wp-plugins/disable-emails)
 * German (de-DE) -- [Peter Harlacher](http://helvetian.io/)
 * Norwegian: Bokmål (nb-NO) -- [neonnero](http://www.neonnero.com/)
 * Norwegian: Nynorsk (nn-NO) -- [neonnero](http://www.neonnero.com/)
