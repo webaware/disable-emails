@@ -140,7 +140,7 @@ class DisableEmailsPlugin {
 	*/
 	public function dashboardStatus($glances) {
 		if ($this->wpmailReplaced) {
-			$glances[] = sprintf('<li style="float:none"><i class="dashicons dashicons-email"></i> %s</li>', __('Emails are disabled.', 'disable-emails'));
+			$glances[] = sprintf('<li style="float:none"><i class="dashicons dashicons-email" aria-hidden="true"></i> %s</li>', __('Emails are disabled.', 'disable-emails'));
 		}
 
 		return $glances;
