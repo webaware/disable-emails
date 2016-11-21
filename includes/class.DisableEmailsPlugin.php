@@ -31,7 +31,7 @@ class DisableEmailsPlugin {
 	* hook into WordPress
 	*/
 	private function __construct() {
-		static $defaults = array (
+		$defaults = array (
 			'wp_mail'				=> 1,
 			'wp_mail_from'			=> 1,
 			'wp_mail_from_name'		=> 1,
@@ -40,22 +40,7 @@ class DisableEmailsPlugin {
 			'phpmailer_init'		=> 1,
 		);
 
-		$this->options = (array) get_option(DISABLE_EMAILS_OPTIONS);
-
-		if (isset($this->options['callFilterWpMail'])) {
-			// upgrade old wp_mail option to one option per hook name, matching old setting
-			foreach (array_keys($defaults) as $key) {
-				$this->options[$key] = $this->options['callFilterWpMail'];
-			}
-			unset($this->options['callFilterWpMail']);
-		}
-
-		if (count(array_diff(array_keys($defaults), array_keys($this->options))) > 0) {
-			// options not yet saved, or new options added; need to update and save
-			$this->options = array_merge($defaults, $this->options);
-			unset($this->options[0]);
-			update_option(DISABLE_EMAILS_OPTIONS, $this->options);
-		}
+		$this->options = get_option(DISABLE_EMAILS_OPTIONS, $defaults);
 
 		// add hooks
 		add_action('init', array($this, 'init'));
