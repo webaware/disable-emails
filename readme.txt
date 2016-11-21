@@ -5,9 +5,9 @@ Plugin URI: https://shop.webaware.com.au/downloads/disable-emails/
 Author URI: https://shop.webaware.com.au/
 Donate link: https://shop.webaware.com.au/donations/?donation_for=Disable+Emails
 Tags: disable emails, block emails
-Requires at least: 3.6.1
-Tested up to: 4.4
-Stable tag: 1.2.5
+Requires at least: 4.0
+Tested up to: 4.7
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,28 +69,14 @@ Behind the scenes, it creates a private copy of PHPMailer and allows the system 
 
 == Upgrade Notice ==
 
-= 1.2.5 =
+= 1.3.0 =
 
-added Chinese and Japanese translations, verified working in WordPress 4.4
+added setting to force BuddyPress to use `wp_mail()` so that its emails can be disabled
 
 == Changelog ==
 
 The full changelog can be found [on GitHub](https://github.com/webaware/disable-emails/blob/master/changelog.md). Recent entries:
 
-### 1.2.5, 2015-12-02
+### 1.3.0, 2016-11-21
 
-* added: Chinese translation (thanks, [Cai_Miao](https://profiles.wordpress.org/cai_miao)!)
-* added: Japanese translation (thanks, [Cai_Miao](https://profiles.wordpress.org/cai_miao)!)
-* added: status message on At A Glance dashboard metabox when emails are disabled
-
-### 1.2.4, 2015-02-28
-
-* added: German translation (thanks, [Peter Harlacher](http://helvetian.io/)!)
-
-### 1.2.3, 2014-11-03
-
-* added: Czech translation (thanks, [Rudolf Klusal](http://www.klusik.cz/)!)
-
-### 1.2.2, 2014-08-31
-
-* added: Norwegian translations (thanks, [neonnero](http://www.neonnero.com/)!)
+* added: setting to force BuddyPress to use `wp_mail()` so that its emails can be disabled

@@ -2,7 +2,7 @@
 
 ## Changelog
 
-### 1.3.0, soon...
+### 1.3.0, 2016-11-21
 
 * added: setting to force BuddyPress to use `wp_mail()` so that its emails can be disabled
 
