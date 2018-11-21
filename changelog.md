@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.4.0, 2018-11-21
+
+* added: setting to force Events Manager to use `wp_mail()` so that its emails can be disabled
+
 ### 1.3.0, 2016-11-21
 
 * added: setting to force BuddyPress to use `wp_mail()` so that its emails can be disabled

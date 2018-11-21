@@ -39,6 +39,7 @@ class DisableEmailsPlugin {
 			'wp_mail_charset'		=> 1,
 			'phpmailer_init'		=> 1,
 			'buddypress'			=> 1,
+			'events_manager'		=> 1,
 		);
 
 		$this->options = get_option(DISABLE_EMAILS_OPTIONS, $defaults);
@@ -52,8 +53,14 @@ class DisableEmailsPlugin {
 		add_filter('plugin_row_meta', array($this, 'addPluginDetailsLinks'), 10, 2);
 
 		// maybe stop BuddyPress emails too
-		if (!empty($options['buddypress'])) {
+		if (!empty($this->options['buddypress'])) {
 			add_filter('bp_email_use_wp_mail', '__return_true');
+		}
+
+		// maybe stop Events Manager emails too
+		if (!empty($this->options['events_manager'])) {
+			add_filter('pre_option_dbem_rsvp_mail_send_method', array($this, 'forceEventsManagerDisable'));
+			add_action('load-event_page_events-manager-options', array($this, 'cancelEventsManagerDisable'));
 		}
 	}
 
@@ -103,6 +110,7 @@ class DisableEmailsPlugin {
 			'wp_mail_charset',
 			'phpmailer_init',
 			'buddypress',
+			'events_manager',
 		);
 		foreach ($hooknames as $name) {
 			$output[$name] = empty($input[$name]) ? 0 : 1;
@@ -144,6 +152,22 @@ class DisableEmailsPlugin {
 		}
 
 		return $glances;
+	}
+
+	/**
+	* force Events Manager to use wp_mail(), so that we can disable it
+	* @param string|bool $return
+	* @return string
+	*/
+	public function forceEventsManagerDisable($return) {
+		return 'wp_mail';
+	}
+
+	/**
+	* cancel Events Manager hook forcing wp_mail() because we're on its settings page
+	*/
+	public function cancelEventsManagerDisable() {
+		remove_filter('pre_option_dbem_rsvp_mail_send_method', array($this, 'forceEventsManagerDisable'));
 	}
 
 	/**

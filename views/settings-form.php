@@ -35,6 +35,14 @@ if (!defined('ABSPATH')) {
 				</td>
 			</tr>
 
+			<tr valign="top">
+				<th scope="row"><?php esc_html_e('Events Manager', 'disable-emails'); ?></th>
+				<td>
+					<input type="checkbox" name="disable_emails[events_manager]" id="disable_emails_events_manager" value="1" <?php checked(!empty($options['events_manager'])); ?> />
+					<label for="disable_emails_events_manager"><?php esc_html_e('force Events Manager to use WordPress emails so that they can be blocked', 'disable-emails'); ?></label>
+				</td>
+			</tr>
+
 		</table>
 
 		<?php submit_button(); ?>
