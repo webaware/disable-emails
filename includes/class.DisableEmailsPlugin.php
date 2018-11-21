@@ -44,7 +44,7 @@ class DisableEmailsPlugin {
 		$this->options = get_option(DISABLE_EMAILS_OPTIONS, $defaults);
 
 		// add hooks
-		add_action('init', array($this, 'init'));
+		add_action('init', array($this, 'loadTextDomain'));
 		add_action('admin_init', array($this, 'adminInit'));
 		add_action('admin_menu', array($this, 'adminMenu'));
 		add_action('admin_notices', array($this, 'showWarningAlreadyDefined'));
@@ -58,10 +58,10 @@ class DisableEmailsPlugin {
 	}
 
 	/**
-	* init action
+	* load text translations
 	*/
-	public function init() {
-		load_plugin_textdomain('disable-emails', false, basename(dirname(DISABLE_EMAILS_PLUGIN_FILE)) . '/languages/');
+	public function loadTextDomain() {
+		load_plugin_textdomain('disable-emails', false, plugin_basename(DISABLE_EMAILS_PLUGIN_ROOT . 'languages'));
 	}
 
 	/**
