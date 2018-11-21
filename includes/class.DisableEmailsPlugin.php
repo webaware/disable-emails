@@ -116,10 +116,10 @@ class DisableEmailsPlugin {
 	*/
 	public function addPluginDetailsLinks($links, $file) {
 		if ($file == DISABLE_EMAILS_PLUGIN_NAME) {
-			$links[] = sprintf('<a href="https://wordpress.org/support/plugin/disable-emails" target="_blank">%s</a>', _x('Get help', 'plugin details links', 'disable-emails'));
-			$links[] = sprintf('<a href="https://wordpress.org/plugins/disable-emails/" target="_blank">%s</a>', _x('Rating', 'plugin details links', 'disable-emails'));
-			$links[] = sprintf('<a href="https://translate.wordpress.org/projects/wp-plugins/disable-emails" target="_blank">%s</a>', _x('Translate', 'plugin details links', 'disable-emails'));
-			$links[] = sprintf('<a href="https://shop.webaware.com.au/donations/?donation_for=Disable+Emails" target="_blank">%s</a>', _x('Donate', 'plugin details links', 'disable-emails'));
+			$links[] = sprintf('<a href="https://wordpress.org/support/plugin/disable-emails" target="_blank" rel="noopener">%s</a>', _x('Get help', 'plugin details links', 'disable-emails'));
+			$links[] = sprintf('<a href="https://wordpress.org/plugins/disable-emails/" target="_blank" rel="noopener">%s</a>', _x('Rating', 'plugin details links', 'disable-emails'));
+			$links[] = sprintf('<a href="https://translate.wordpress.org/projects/wp-plugins/disable-emails" target="_blank" rel="noopener">%s</a>', _x('Translate', 'plugin details links', 'disable-emails'));
+			$links[] = sprintf('<a href="https://shop.webaware.com.au/donations/?donation_for=Disable+Emails" target="_blank" rel="noopener">%s</a>', _x('Donate', 'plugin details links', 'disable-emails'));
 		}
 
 		return $links;
