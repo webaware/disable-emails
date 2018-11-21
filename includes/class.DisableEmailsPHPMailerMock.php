@@ -127,10 +127,6 @@ class DisableEmailsPHPMailerMock {
 				// check for pseudo-headers
 				if ( strpos($header, ':') === false ) {
 					// TODO: handle multipart boundaries
-					//~ if ( false !== stripos( $header, 'boundary=' ) ) {
-						//~ $parts = preg_split('/boundary=/i', trim( $header ) );
-						//~ $boundary = trim( str_replace( array( "'", '"' ), '', $parts[1] ) );
-					//~ }
 					continue;
 				}
 
