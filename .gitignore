@@ -2,3 +2,4 @@
 dist
 languages/disable-emails.mo
 node_modules
+vendor

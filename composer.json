@@ -1,0 +1,12 @@
+{
+	"require-dev": {
+		"phpcompatibility/php-compatibility": "*",
+		"squizlabs/php_codesniffer": "*",
+		"dealerdirect/phpcodesniffer-composer-installer": "*"
+	},
+	"scripts": {
+		"lint": "php -l disable-emails.php; find includes views -name '*.php' -exec php -l '{}' \\;",
+		"sniff": "phpcs -ps && phpcs -ps --standard=phpcs-5.2.xml"
+	},
+	"prefer-stable" : true
+}

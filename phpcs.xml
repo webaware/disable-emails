@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<ruleset name="PHP_CodeSniffer">
+	<description>Some basic coding standards sniffs for this project.</description>
+
+	<file>disable-emails.php</file>
+	<file>includes</file>
+	<file>views</file>
+
+	<arg name="basepath" value="." />
+	<arg name="colors" />
+	<arg name="extensions" value="php" />
+	<arg name="tab-width" value="4" />
+
+	<config name="testVersion" value="5.3-"/>
+
+	<rule ref="PHPCompatibility" />
+
+	<rule ref="Generic.Debug.ClosureLinter" />
+	<rule ref="Generic.Files.LineEndings" />
+	<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
+	<!-- <rule ref="Generic.Metrics.CyclomaticComplexity" /> -->
+	<rule ref="Generic.Metrics.NestingLevel" />
+	<rule ref="Generic.PHP.NoSilencedErrors" />
+	<rule ref="Generic.PHP.DisallowShortOpenTag.Found" />
+	<rule ref="Generic.Strings.UnnecessaryStringConcat" />
+
+	<rule ref="Generic.PHP.ForbiddenFunctions">
+		<properties>
+			<property name="forbiddenFunctions" type="array">
+				<element key="sizeof" value="count"/>
+				<element key="delete" value="unset"/>
+				<element key="print" value="echo"/>
+				<element key="create_function" value="null"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing">
+		<properties>
+			<property name="ignoreNewlines" value="true" />
+		</properties>
+	</rule>
+
+	<rule ref="Generic.WhiteSpace.ScopeIndent">
+		<properties>
+			<property name="tabIndent" value="true" />
+		</properties>
+	</rule>
+
+	<rule ref="Squiz.PHP.CommentedOutCode" />
+
+</ruleset>
