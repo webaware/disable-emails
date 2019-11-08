@@ -1,5 +1,6 @@
-.svn
-dist
-languages/disable-emails.mo
-node_modules
-vendor
+/.svn
+/.vscode
+/.wordpress.org
+/.dist
+/node_modules
+/vendor

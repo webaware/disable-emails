@@ -1,10 +1,9 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "474bae32befc340ca9e414778ac0feb8",
     "content-hash": "708ccf3854b8b5ca78901ed0442cc7af",
     "packages": [],
     "packages-dev": [
@@ -72,20 +71,20 @@
                 "stylecheck",
                 "tests"
             ],
-            "time": "2018-10-26 13:21:45"
+            "time": "2018-10-26T13:21:45+00:00"
         },
         {
             "name": "phpcompatibility/php-compatibility",
-            "version": "9.0.0",
+            "version": "9.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
-                "reference": "e9f4047e5edf53c88f36f1dafc0d49454ce13e25"
+                "reference": "bfca2be3992f40e92206e5a7ebe5eaee37280b58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/e9f4047e5edf53c88f36f1dafc0d49454ce13e25",
-                "reference": "e9f4047e5edf53c88f36f1dafc0d49454ce13e25",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/bfca2be3992f40e92206e5a7ebe5eaee37280b58",
+                "reference": "bfca2be3992f40e92206e5a7ebe5eaee37280b58",
                 "shasum": ""
             },
             "require": {
@@ -99,7 +98,7 @@
                 "phpunit/phpunit": "~4.5 || ^5.0 || ^6.0 || ^7.0"
             },
             "suggest": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically.",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically.",
                 "roave/security-advisories": "dev-master || Helps prevent installing dependencies with known security issues."
             },
             "type": "phpcodesniffer-standard",
@@ -109,10 +108,6 @@
             ],
             "authors": [
                 {
-                    "name": "Contributors",
-                    "homepage": "https://github.com/PHPCompatibility/PHPCompatibility/graphs/contributors"
-                },
-                {
                     "name": "Wim Godden",
                     "homepage": "https://github.com/wimg",
                     "role": "lead"
@@ -121,6 +116,10 @@
                     "name": "Juliette Reinders Folmer",
                     "homepage": "https://github.com/jrfnl",
                     "role": "lead"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/PHPCompatibility/PHPCompatibility/graphs/contributors"
                 }
             ],
             "description": "A set of sniffs for PHP_CodeSniffer that checks for PHP cross-version compatibility.",
@@ -130,20 +129,20 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-10-07 17:38:02"
+            "time": "2019-10-16T21:24:24+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.3.2",
+            "version": "3.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "6ad28354c04b364c3c71a34e4a18b629cc3b231e"
+                "reference": "65b12cdeaaa6cd276d4c3033a95b9b88b12701e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/6ad28354c04b364c3c71a34e4a18b629cc3b231e",
-                "reference": "6ad28354c04b364c3c71a34e4a18b629cc3b231e",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/65b12cdeaaa6cd276d4c3033a95b9b88b12701e7",
+                "reference": "65b12cdeaaa6cd276d4c3033a95b9b88b12701e7",
                 "shasum": ""
             },
             "require": {
@@ -176,12 +175,12 @@
                 }
             ],
             "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
-            "homepage": "http://www.squizlabs.com/php-codesniffer",
+            "homepage": "https://github.com/squizlabs/PHP_CodeSniffer",
             "keywords": [
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-09-23 23:08:17"
+            "time": "2019-10-28T04:36:32+00:00"
         }
     ],
     "aliases": [],
