@@ -1,5 +1,9 @@
 <?php
 
+namespace webaware\disable_emails;
+
+use \PHPMailer;
+
 if (!defined('ABSPATH')) {
 	exit;
 }
@@ -8,7 +12,7 @@ if (!defined('ABSPATH')) {
 * mock of PHPMailer, to support hookers that need to access PHPMailer properties
 * uses a private instance of PHPMailer, but doesn't permit sending emails through it
 */
-class DisableEmailsPHPMailerMock {
+class PHPMailerMock {
 
 	private $phpmailer;
 
@@ -94,7 +98,7 @@ class DisableEmailsPHPMailerMock {
 	* @return bool
 	*/
 	public function wpmail($to, $subject, $message, $headers, $attachments) {
-		$plugin = DisableEmailsPlugin::getInstance();
+		$settings = get_plugin_settings();
 
 		// get the site domain and get rid of www.
 		$sitename = strtolower( $_SERVER['SERVER_NAME'] );
@@ -107,7 +111,7 @@ class DisableEmailsPHPMailerMock {
 		$this->phpmailer->From = 'wordpress@' . $sitename;
 
 		// let hookers change the function arguments if settings allow
-		if ($plugin->options['wp_mail']) {
+		if ($settings['wp_mail']) {
 			extract( apply_filters( 'wp_mail', compact( 'to', 'subject', 'message', 'headers', 'attachments' ) ), EXTR_IF_EXISTS );
 		}
 
@@ -172,19 +176,19 @@ class DisableEmailsPHPMailerMock {
 		}
 
 
-		if ($plugin->options['wp_mail_from']) {
+		if ($settings['wp_mail_from']) {
 			$this->phpmailer->From = apply_filters( 'wp_mail_from', $this->phpmailer->From );
 		}
-		if ($plugin->options['wp_mail_from_name']) {
+		if ($settings['wp_mail_from_name']) {
 			$this->phpmailer->FromName = apply_filters( 'wp_mail_from_name', $this->phpmailer->FromName );
 		}
-		if ($plugin->options['wp_mail_content_type']) {
+		if ($settings['wp_mail_content_type']) {
 			$this->phpmailer->ContentType = apply_filters( 'wp_mail_content_type', $this->phpmailer->ContentType );
 		}
-		if ($plugin->options['wp_mail_charset']) {
+		if ($settings['wp_mail_charset']) {
 			$this->phpmailer->CharSet = apply_filters( 'wp_mail_charset', $this->phpmailer->CharSet );
 		}
-		if ($plugin->options['phpmailer_init']) {
+		if ($settings['phpmailer_init']) {
 			do_action('phpmailer_init', $this->phpmailer);
 		}
 

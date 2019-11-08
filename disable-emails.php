@@ -35,23 +35,13 @@ if (!defined('ABSPATH')) {
 define('DISABLE_EMAILS_PLUGIN_FILE', __FILE__);
 define('DISABLE_EMAILS_PLUGIN_ROOT', dirname(__FILE__) . '/');
 define('DISABLE_EMAILS_PLUGIN_NAME', basename(dirname(__FILE__)) . '/' . basename(__FILE__));
+define('DISABLE_EMAILS_MIN_PHP', '5.6');
 
-// options
-define('DISABLE_EMAILS_OPTIONS', 'disable_emails');
+require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/functions-global.php';
 
-include DISABLE_EMAILS_PLUGIN_ROOT . 'includes/class.DisableEmailsPlugin.php';
-DisableEmailsPlugin::getInstance();
-
-
-// replace standard WordPress wp_mail() if nobody else has already done it
-if (!function_exists('wp_mail')) {
-
-	function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
-		// create mock PHPMailer object to handle any filter and action hook listeners
-		$mailer = new DisableEmailsPHPMailerMock();
-		return $mailer->wpmail($to, $subject, $message, $headers, $attachments);
-	}
-
-	DisableEmailsPlugin::setActive();
-
+if (version_compare(PHP_VERSION, DISABLE_EMAILS_MIN_PHP, '<')) {
+	add_action('admin_notices', 'disable_emails_fail_php_version');
+	return;
 }
+
+require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/bootstrap.php';

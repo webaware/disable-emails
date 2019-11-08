@@ -1,5 +1,7 @@
 <?php
 
+namespace webaware\disable_emails;
+
 if (!defined('ABSPATH')) {
 	exit;
 }
@@ -7,9 +9,7 @@ if (!defined('ABSPATH')) {
 /**
 * class for managing the plugin
 */
-class DisableEmailsPlugin {
-
-	public $options;
+class Plugin {
 
 	protected $wpmailReplaced = false;
 
@@ -20,7 +20,7 @@ class DisableEmailsPlugin {
 	public static function getInstance() {
 		static $instance = null;
 
-		if (is_null($instance)) {
+		if ($instance === null) {
 			$instance = new self();
 		}
 
@@ -28,55 +28,44 @@ class DisableEmailsPlugin {
 	}
 
 	/**
-	* hook into WordPress
+	* hide constructor
 	*/
-	private function __construct() {
-		$defaults = array (
-			'wp_mail'				=> 1,
-			'wp_mail_from'			=> 1,
-			'wp_mail_from_name'		=> 1,
-			'wp_mail_content_type'	=> 1,
-			'wp_mail_charset'		=> 1,
-			'phpmailer_init'		=> 1,
-			'buddypress'			=> 1,
-			'events_manager'		=> 1,
-		);
+	private function __construct() {}
 
-		$this->options = get_option(DISABLE_EMAILS_OPTIONS, $defaults);
+	/**
+	* initialise plugin
+	*/
+	public function pluginStart() {
+		$this->wpmailReplaced = class_exists(__NAMESPACE__ . '\\PHPMailerMock', false);
 
 		// add hooks
-		add_action('init', array($this, 'loadTextDomain'));
+		add_action('init', 'disable_emails_load_text_domain');
 		add_action('admin_init', array($this, 'adminInit'));
 		add_action('admin_menu', array($this, 'adminMenu'));
 		add_action('admin_notices', array($this, 'showWarningAlreadyDefined'));
 		add_filter('dashboard_glance_items', array($this, 'dashboardStatus'), 99);
 		add_filter('plugin_row_meta', array($this, 'addPluginDetailsLinks'), 10, 2);
 
+		$settings = get_plugin_settings();
+
 		// maybe stop BuddyPress emails too
-		if (!empty($this->options['buddypress'])) {
+		if (!empty($settings['buddypress'])) {
 			add_filter('bp_email_use_wp_mail', '__return_true');
 		}
 
 		// maybe stop Events Manager emails too
-		if (!empty($this->options['events_manager'])) {
+		if (!empty($settings['events_manager'])) {
 			add_filter('pre_option_dbem_rsvp_mail_send_method', array($this, 'forceEventsManagerDisable'));
 			add_action('load-event_page_events-manager-options', array($this, 'cancelEventsManagerDisable'));
 		}
 	}
 
 	/**
-	* load text translations
-	*/
-	public function loadTextDomain() {
-		load_plugin_textdomain('disable-emails', false, plugin_basename(DISABLE_EMAILS_PLUGIN_ROOT . 'languages'));
-	}
-
-	/**
 	* admin_init action
 	*/
 	public function adminInit() {
-		add_settings_section(DISABLE_EMAILS_OPTIONS, false, false, DISABLE_EMAILS_OPTIONS);
-		register_setting(DISABLE_EMAILS_OPTIONS, DISABLE_EMAILS_OPTIONS, array($this, 'settingsValidate'));
+		add_settings_section(OPT_SETTINGS, false, false, OPT_SETTINGS);
+		register_setting(OPT_SETTINGS, OPT_SETTINGS, array($this, 'settingsValidate'));
 	}
 
 	/**
@@ -90,7 +79,7 @@ class DisableEmailsPlugin {
 	* settings admin
 	*/
 	public function settingsPage() {
-		$options = $this->options;
+		$settings = get_plugin_settings();
 		require DISABLE_EMAILS_PLUGIN_ROOT . 'views/settings-form.php';
 	}
 
@@ -100,9 +89,9 @@ class DisableEmailsPlugin {
 	* @return array
 	*/
 	public function settingsValidate($input) {
-		$output = array();
+		$output = [];
 
-		$hooknames = array(
+		$hooknames = [
 			'wp_mail',
 			'wp_mail_from',
 			'wp_mail_from_name',
@@ -111,7 +100,7 @@ class DisableEmailsPlugin {
 			'phpmailer_init',
 			'buddypress',
 			'events_manager',
-		);
+		];
 		foreach ($hooknames as $name) {
 			$output[$name] = empty($input[$name]) ? 0 : 1;
 		}
@@ -123,7 +112,7 @@ class DisableEmailsPlugin {
 	* action hook for adding plugin details links
 	*/
 	public function addPluginDetailsLinks($links, $file) {
-		if ($file == DISABLE_EMAILS_PLUGIN_NAME) {
+		if ($file === DISABLE_EMAILS_PLUGIN_NAME) {
 			$links[] = sprintf('<a href="https://wordpress.org/support/plugin/disable-emails" target="_blank" rel="noopener">%s</a>', _x('Get help', 'plugin details links', 'disable-emails'));
 			$links[] = sprintf('<a href="https://wordpress.org/plugins/disable-emails/" target="_blank" rel="noopener">%s</a>', _x('Rating', 'plugin details links', 'disable-emails'));
 			$links[] = sprintf('<a href="https://translate.wordpress.org/projects/wp-plugins/disable-emails" target="_blank" rel="noopener">%s</a>', _x('Translate', 'plugin details links', 'disable-emails'));
@@ -168,16 +157,6 @@ class DisableEmailsPlugin {
 	*/
 	public function cancelEventsManagerDisable() {
 		remove_filter('pre_option_dbem_rsvp_mail_send_method', array($this, 'forceEventsManagerDisable'));
-	}
-
-	/**
-	* wp_mail() was successfully replaced, so we can activate disabling emails
-	*/
-	public static function setActive() {
-		include DISABLE_EMAILS_PLUGIN_ROOT . 'includes/class.DisableEmailsPHPMailerMock.php';
-
-		$plugin = self::getInstance();
-		$plugin->wpmailReplaced = true;
 	}
 
 }
