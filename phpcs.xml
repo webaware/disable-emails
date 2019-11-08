@@ -11,7 +11,7 @@
 	<arg name="extensions" value="php" />
 	<arg name="tab-width" value="4" />
 
-	<config name="testVersion" value="5.3-"/>
+	<config name="testVersion" value="5.6-"/>
 
 	<rule ref="PHPCompatibility" />
 
@@ -20,8 +20,9 @@
 	<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
 	<!-- <rule ref="Generic.Metrics.CyclomaticComplexity" /> -->
 	<rule ref="Generic.Metrics.NestingLevel" />
-	<rule ref="Generic.PHP.NoSilencedErrors" />
+	<rule ref="Generic.NamingConventions.ConstructorName" />
 	<rule ref="Generic.PHP.DisallowShortOpenTag.Found" />
+	<rule ref="Generic.PHP.NoSilencedErrors" />
 	<rule ref="Generic.Strings.UnnecessaryStringConcat" />
 
 	<rule ref="Generic.PHP.ForbiddenFunctions">
@@ -33,6 +34,12 @@
 				<element key="create_function" value="null"/>
 			</property>
 		</properties>
+	</rule>
+
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax">
+		<exclude-pattern>disable-emails.php</exclude-pattern>
+		<exclude-pattern>includes/functions-global.php</exclude-pattern>
+		<exclude-pattern>views/requires-php.php</exclude-pattern>
 	</rule>
 
 	<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing">
@@ -48,5 +55,8 @@
 	</rule>
 
 	<rule ref="Squiz.PHP.CommentedOutCode" />
+	<rule ref="Squiz.PHP.DiscouragedFunctions" />
+	<rule ref="Squiz.PHP.NonExecutableCode" />
+	<rule ref="Squiz.Strings.DoubleQuoteUsage.NotRequired" />
 
 </ruleset>

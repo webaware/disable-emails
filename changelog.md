@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.5.0, soon...
+
+* changed: requires minimum PHP 5.6; recommend PHP 7.3+
+
 ### 1.4.0, 2018-11-21
 
 * added: setting to force Events Manager to use `wp_mail()` so that its emails can be disabled

@@ -1,6 +1,6 @@
 {
   "name": "disable-emails",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Stop WordPress from sending any emails. ANY!",
   "main": "Gruntfile.js",
   "devDependencies": {
