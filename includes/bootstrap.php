@@ -14,7 +14,7 @@ if (!function_exists('wp_mail')) {
 
 	require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/class.PHPMailerMock.php';
 
-	function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
+	function wp_mail( $to, $subject, $message, $headers = '', $attachments = [] ) {
 		// create mock PHPMailer object to handle any filter and action hook listeners
 		$mailer = new PHPMailerMock();
 		return $mailer->wpmail($to, $subject, $message, $headers, $attachments);

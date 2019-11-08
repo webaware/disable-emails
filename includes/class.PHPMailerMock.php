@@ -25,7 +25,7 @@ class PHPMailerMock {
 		$this->phpmailer = new PHPMailer( true );
 
 		// build map of allowed function calls
-		$this->allowed_calls = array_flip( array(
+		$this->allowed_calls = array_flip([
 			'isHTML',
 			'addAddress',
 			'addCC',
@@ -84,7 +84,7 @@ class PHPMailerMock {
 			'DKIM_BodyC',
 			'DKIM_Add',
 			'validateAddress',
-		) );
+		]);
 
 	}
 
@@ -267,7 +267,7 @@ class PHPMailerMock {
 			$this->phpmailer->ContentType = trim( $type );
 
 			if ( false !== stripos( $charset, 'charset=' ) ) {
-				$this->phpmailer->CharSet = trim( str_ireplace( array( 'charset=', '"' ), '', $charset ) );
+				$this->phpmailer->CharSet = trim( str_ireplace( ['charset=', '"'], '', $charset ) );
 			}
 		}
 		else {

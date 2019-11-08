@@ -40,11 +40,11 @@ class Plugin {
 
 		// add hooks
 		add_action('init', 'disable_emails_load_text_domain');
-		add_action('admin_init', array($this, 'adminInit'));
-		add_action('admin_menu', array($this, 'adminMenu'));
-		add_action('admin_notices', array($this, 'showWarningAlreadyDefined'));
-		add_filter('dashboard_glance_items', array($this, 'dashboardStatus'), 99);
-		add_filter('plugin_row_meta', array($this, 'addPluginDetailsLinks'), 10, 2);
+		add_action('admin_init', [$this, 'adminInit']);
+		add_action('admin_menu', [$this, 'adminMenu']);
+		add_action('admin_notices', [$this, 'showWarningAlreadyDefined']);
+		add_filter('dashboard_glance_items', [$this, 'dashboardStatus'], 99);
+		add_filter('plugin_row_meta', [$this, 'addPluginDetailsLinks'], 10, 2);
 
 		$settings = get_plugin_settings();
 
@@ -55,8 +55,8 @@ class Plugin {
 
 		// maybe stop Events Manager emails too
 		if (!empty($settings['events_manager'])) {
-			add_filter('pre_option_dbem_rsvp_mail_send_method', array($this, 'forceEventsManagerDisable'));
-			add_action('load-event_page_events-manager-options', array($this, 'cancelEventsManagerDisable'));
+			add_filter('pre_option_dbem_rsvp_mail_send_method', [$this, 'forceEventsManagerDisable']);
+			add_action('load-event_page_events-manager-options', [$this, 'cancelEventsManagerDisable']);
 		}
 	}
 
@@ -65,14 +65,14 @@ class Plugin {
 	*/
 	public function adminInit() {
 		add_settings_section(OPT_SETTINGS, false, false, OPT_SETTINGS);
-		register_setting(OPT_SETTINGS, OPT_SETTINGS, array($this, 'settingsValidate'));
+		register_setting(OPT_SETTINGS, OPT_SETTINGS, [$this, 'settingsValidate']);
 	}
 
 	/**
 	* admin menu items
 	*/
 	public function adminMenu() {
-		add_options_page('Disable Emails', 'Disable Emails', 'manage_options', 'disable-emails', array($this, 'settingsPage'));
+		add_options_page('Disable Emails', 'Disable Emails', 'manage_options', 'disable-emails', [$this, 'settingsPage']);
 	}
 
 	/**
@@ -156,7 +156,7 @@ class Plugin {
 	* cancel Events Manager hook forcing wp_mail() because we're on its settings page
 	*/
 	public function cancelEventsManagerDisable() {
-		remove_filter('pre_option_dbem_rsvp_mail_send_method', array($this, 'forceEventsManagerDisable'));
+		remove_filter('pre_option_dbem_rsvp_mail_send_method', [$this, 'forceEventsManagerDisable']);
 	}
 
 }
