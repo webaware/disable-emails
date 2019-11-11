@@ -80,17 +80,18 @@ NB: if you activate the must-use plugin on a multisite, it will stop emails on a
 
 ## Upgrade Notice
 
-### 1.4.0
+### 1.5.0
 
-added setting to force Events Manager to use `wp_mail()` so that its emails can be disabled
+fixes PHP notice "Trying to get property 'ErrorInfo' of non-object"; supports running as a must-use plugin (mu-plugin); requires PHP 5.6+
 
 ## Changelog
 
 The full changelog can be found [on GitHub](https://github.com/webaware/disable-emails/blob/master/changelog.md). Recent entries:
 
-### 1.4.0
+### 1.5.0
 
-Released 2018-11-21
+Released 2019-11-11
 
-* added: setting to force Events Manager to use `wp_mail()` so that its emails can be disabled
-* tested: WordPress 5.0
+* fixed: PHP notice -- Trying to get property 'ErrorInfo' of non-object
+* changed: requires minimum PHP 5.6; recommend PHP 7.3+
+* added: support for running the plugin as a must-use plugin (mu-plugin)

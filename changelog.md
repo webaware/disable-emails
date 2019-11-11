@@ -2,7 +2,7 @@
 
 ## Changelog
 
-### 1.5.0, soon...
+### 1.5.0, 2019-11-11
 
 * fixed: PHP notice -- Trying to get property 'ErrorInfo' of non-object
 * changed: requires minimum PHP 5.6; recommend PHP 7.3+
