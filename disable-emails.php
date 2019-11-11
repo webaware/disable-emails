@@ -32,10 +32,16 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
+// don't go any further if plugin is already loaded (e.g. mu-plugin)
+if (defined('DISABLE_EMAILS_PLUGIN_FILE')) {
+	return;
+}
+
 define('DISABLE_EMAILS_PLUGIN_FILE', __FILE__);
 define('DISABLE_EMAILS_PLUGIN_ROOT', dirname(__FILE__) . '/');
 define('DISABLE_EMAILS_PLUGIN_NAME', basename(dirname(__FILE__)) . '/' . basename(__FILE__));
 define('DISABLE_EMAILS_MIN_PHP', '5.6');
+define('DISABLE_EMAILS_VERSION', '1.5.0');
 
 require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/functions-global.php';
 

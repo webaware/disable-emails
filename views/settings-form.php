@@ -1,7 +1,8 @@
 <?php
 // settings form
 
-namespace webaware\disable_emails;
+use const		webaware\disable_emails\OPT_SETTINGS;
+use function	webaware\disable_emails\has_mu_plugin_permission;
 
 if (!defined('ABSPATH')) {
 	exit;
@@ -11,7 +12,7 @@ if (!defined('ABSPATH')) {
 <div class="wrap">
 	<h1><?php esc_html_e('Disable Emails settings', 'disable-emails'); ?></h1>
 
-	<form action="<?php echo admin_url('options.php'); ?>" method="POST">
+	<form action="<?= esc_url(admin_url('options.php')); ?>" method="POST">
 		<?php settings_fields(OPT_SETTINGS); ?>
 
 		<table class="form-table">
@@ -48,5 +49,47 @@ if (!defined('ABSPATH')) {
 		</table>
 
 		<?php submit_button(); ?>
+
+		<?php if (has_mu_plugin_permission()): ?>
+
+			<h2><?= esc_html_x('Must-use plugin', 'settings', 'disable-emails'); ?></h2>
+
+			<p><?= esc_html__('When enabled as a must-use plugin, also known as mu-plugin, Disable Emails is always activated. This is recommended for development websites, in which plugins might be deactivated when refreshing the database from a source website. It can also help when another plugin has already declared wp_mail(), preventing Disable Emails from functioning correctly.', 'disable-emails'); ?>
+
+			<p class="disable-emails-mu-buttons">
+				<?php if ($has_mu_plugin): ?>
+
+					<p><?= esc_html__('The must-use plugin is currently enabled.', 'disable-emails'); ?></p>
+
+					<?php if (is_multisite() && !is_plugin_active_for_network(DISABLE_EMAILS_PLUGIN_NAME)): ?>
+						<p><strong><?= esc_html__('This website is in a multisite network. Disabling the must-use plugin will enable emails for all sites that have not activated the plugin separately.', 'disable-emails'); ?></strong></p>
+					<?php endif; ?>
+
+					<button type="button" class="button button-secondary" id="disable-emails-mu-disable"><?= esc_html__('Deactivate must-use plugin', 'disable-emails'); ?></button>
+
+				<?php else: ?>
+
+					<p><?= esc_html__('The must-use plugin is currently disabled.', 'disable-emails'); ?></p>
+
+					<?php if (is_multisite()): ?>
+						<p><strong><?= esc_html__('This website is in a multisite network. Enabling the must-use plugin will disable emails for all sites.', 'disable-emails'); ?></strong></p>
+					<?php endif; ?>
+
+					<button type="button" class="button button-secondary" id="disable-emails-mu-enable"><?= esc_html__('Activate must-use plugin', 'disable-emails'); ?></button>
+
+				<?php endif; ?>
+			</p>
+
+			<noscript>
+				<p>
+					<?= disable_emails_external_link(
+							esc_html__('To activate or deactivate the must-use plugin, please {{a}}enable JavaScript in your browser{{/a}}.', 'disable-emails'),
+							'https://enable-javascript.com/'
+						); ?>
+				</p>
+			</noscript>
+
+		<?php endif; ?>
+
 	</form>
 </div>

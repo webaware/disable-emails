@@ -13,6 +13,8 @@ class Plugin {
 
 	protected $wpmailReplaced = false;
 
+	const SETTINGS_HOOK_SUFFIX = 'settings_page_disable-emails';
+
 	/**
 	* static method for getting the instance of this singleton object
 	* @return self
@@ -42,6 +44,9 @@ class Plugin {
 		add_action('init', 'disable_emails_load_text_domain');
 		add_action('admin_init', [$this, 'adminInit']);
 		add_action('admin_menu', [$this, 'adminMenu']);
+		add_action('admin_enqueue_scripts', [$this, 'settingsScripts']);
+		add_action('admin_print_styles-' . self::SETTINGS_HOOK_SUFFIX, [$this, 'settingsStyles']);
+		add_action('plugin_action_links_' . DISABLE_EMAILS_PLUGIN_NAME, [$this, 'pluginActionLinks']);
 		add_action('admin_notices', [$this, 'showWarningAlreadyDefined']);
 		add_filter('dashboard_glance_items', [$this, 'dashboardStatus'], 99);
 		add_filter('plugin_row_meta', [$this, 'addPluginDetailsLinks'], 10, 2);
@@ -76,10 +81,45 @@ class Plugin {
 	}
 
 	/**
+	* settings admin scripts
+	* @param string $hook_suffix
+	*/
+	public function settingsScripts($hook_suffix) {
+		if ($hook_suffix === self::SETTINGS_HOOK_SUFFIX) {
+			$min = SCRIPT_DEBUG ? '' : '.min';
+			$ver = SCRIPT_DEBUG ? time() : DISABLE_EMAILS_VERSION;
+
+			wp_enqueue_script('disable-emails-settings', plugins_url("js/settings$min.js", DISABLE_EMAILS_PLUGIN_FILE), [], $ver, true);
+			wp_localize_script('disable-emails-settings', 'disable_emails_settings', [
+				'mu_url'		=> wp_nonce_url(admin_url('options-general.php?page=disable-emails'), 'disable-emails-mu'),
+				'msg'			=> [
+					'mu_activate'		=> _x('Activate the must-use plugin?', 'settings', 'disable-emails'),
+					'mu_deactivate'		=> _x('Deactivate the must-use plugin?', 'settings', 'disable-emails'),
+				],
+			]);
+		}
+	}
+
+	/**
+	* settings admin styles
+	*/
+	public function settingsStyles() {
+		require DISABLE_EMAILS_PLUGIN_ROOT . 'views/settings-css.php';
+	}
+
+	/**
 	* settings admin
 	*/
 	public function settingsPage() {
 		$settings = get_plugin_settings();
+		$has_mu_plugin = defined('DISABLE_EMAILS_MU_PLUGIN');
+
+		// check for enable/disable mu-plugin
+		if (isset($_GET['action'])) {
+			check_admin_referer('disable-emails-mu');
+			$has_mu_plugin = mu_plugin_manage($_GET['action']);
+		}
+
 		require DISABLE_EMAILS_PLUGIN_ROOT . 'views/settings-form.php';
 	}
 
@@ -106,6 +146,22 @@ class Plugin {
 		}
 
 		return $output;
+	}
+
+	/**
+	* add plugin action links on plugins page
+	* @param array $links
+	* @return array
+	*/
+	public function pluginActionLinks($links) {
+		if (current_user_can('manage_options')) {
+			// add settings link
+			$url = admin_url('options-general.php?page=disable-emails');
+			$settings_link = sprintf('<a href="%s">%s</a>', esc_url($url), esc_html_x('Settings', 'plugin details links', 'disable-emails'));
+			array_unshift($links, $settings_link);
+		}
+
+		return $links;
 	}
 
 	/**
@@ -137,7 +193,19 @@ class Plugin {
 	*/
 	public function dashboardStatus($glances) {
 		if ($this->wpmailReplaced) {
-			$glances[] = sprintf('<li style="float:none"><i class="dashicons dashicons-email" aria-hidden="true"></i> %s</li>', __('Emails are disabled.', 'disable-emails'));
+			if (defined('DISABLE_EMAILS_MU_PLUGIN') && is_multisite()) {
+				/* translators: shown when emails are disabled for all sites in all networks in a multisite, with the must-use plugin */
+				$dash_msg = __('Emails are disabled for all sites.', 'disable-emails');
+			}
+			elseif (is_plugin_active_for_network(DISABLE_EMAILS_PLUGIN_NAME)) {
+				/* translators: shown when emails are disabled for all sites in a multisite network, by network-activating the plugin */
+				$dash_msg = __('Emails are disabled on this network.', 'disable-emails');
+			}
+			else {
+				/* translators: shown when emails are disabled for the current site */
+				$dash_msg = __('Emails are disabled.', 'disable-emails');
+			}
+			$glances[] = sprintf('<li style="float:none"><i class="dashicons dashicons-email" aria-hidden="true"></i> %s</li>', esc_html($dash_msg));
 		}
 
 		return $glances;

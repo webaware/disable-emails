@@ -3,6 +3,51 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
 
+		eslint: {
+			all: [
+				"Gruntfile.js",
+				"es6/*.js"
+			]
+		},
+
+		babel: {
+			options: {
+				presets: [
+					'@babel/preset-env',
+				]
+			},
+			dist: {
+				files: [{
+					"expand": true,
+					"cwd": "es6",
+					"src": ["**/*.js"],
+					"dest": "js/",
+					"ext": ".js",
+				}]
+			}
+		},
+
+		uglify: {
+			build: {
+				options: {
+					output: {
+						ascii_only: true,
+					},
+					banner: "// <%= pkg.description %>\n// <%= pkg.homepage %>\n"
+				},
+				files: [{
+					expand: true,
+					cwd: "js",
+					dest: "js",
+					src: [
+						"*.js",
+						"!*.min.js"
+					],
+					ext: '.min.js'
+				}]
+			}
+		},
+
 		shell: {
 			// @link https://github.com/sindresorhus/grunt-shell
 			dist: {
@@ -24,8 +69,12 @@ module.exports = function (grunt) {
 
 	});
 
+	grunt.loadNpmTasks("grunt-babel");
+	grunt.loadNpmTasks("grunt-contrib-uglify-es");
+	grunt.loadNpmTasks("grunt-eslint");
 	grunt.loadNpmTasks('grunt-shell');
 
+	grunt.registerTask("es6", ["babel","uglify"]);
 	grunt.registerTask("release", ["shell:dist"]);
 	grunt.registerTask("wpsvn", ["shell:wpsvn"]);
 
