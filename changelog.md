@@ -6,6 +6,7 @@
 
 * fixed: PHP notice -- Trying to get property 'ErrorInfo' of non-object
 * changed: requires minimum PHP 5.6; recommend PHP 7.3+
+* added: support for running the plugin as a must-use plugin (mu-plugin)
 
 ### 1.4.0, 2018-11-21
 
