@@ -2,6 +2,11 @@
 
 ## Changelog
 
+### 1.5.1, soon...
+
+* added: indicator setting to show either a Toolbar indicator or a site-wide admin notice when emails are disabled
+* added: filter hook `disable_emails_indicator` for setting the indicator from code; accepts 'none', 'toolbar', 'notice'
+
 ### 1.5.0, 2019-11-11
 
 * fixed: PHP notice -- Trying to get property 'ErrorInfo' of non-object

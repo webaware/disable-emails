@@ -10,6 +10,10 @@ if (!defined('ABSPATH')) {
 
 const OPT_SETTINGS				= 'disable_emails';
 
+const INDICATOR_NONE			= 'none';
+const INDICATOR_TOOLBAR			= 'toolbar';
+const INDICATOR_NOTICE			= 'notice';
+
 /**
 * get current plugin settings, use defaults if settings not yet saved
 * @return array
@@ -24,9 +28,10 @@ function get_plugin_settings() {
 		'phpmailer_init'		=> 1,
 		'buddypress'			=> 1,
 		'events_manager'		=> 1,
+		'indicator'				=> INDICATOR_TOOLBAR,
 	];
 
-	return get_option(OPT_SETTINGS, $defaults);
+	return wp_parse_args(get_option(OPT_SETTINGS, []), $defaults);
 }
 
 /**
@@ -76,4 +81,25 @@ function mu_plugin_manage($action) {
 	}
 
 	return $has_mu_plugin;
+}
+
+/**
+* get message for current active status
+* @return string
+*/
+function get_status_message() {
+	if (defined('DISABLE_EMAILS_MU_PLUGIN') && is_multisite()) {
+		/* translators: shown when emails are disabled for all sites in all networks in a multisite, with the must-use plugin */
+		$msg = __('Emails are disabled for all sites.', 'disable-emails');
+	}
+	elseif (is_plugin_active_for_network(DISABLE_EMAILS_PLUGIN_NAME)) {
+		/* translators: shown when emails are disabled for all sites in a multisite network, by network-activating the plugin */
+		$msg = __('Emails are disabled on this network.', 'disable-emails');
+	}
+	else {
+		/* translators: shown when emails are disabled for the current site */
+		$msg = __('Emails are disabled.', 'disable-emails');
+	}
+
+	return $msg;
 }
