@@ -101,9 +101,15 @@ class PHPMailerMock {
 		$settings = get_plugin_settings();
 
 		// get the site domain and get rid of www.
-		$sitename = strtolower( $_SERVER['SERVER_NAME'] );
-		if ( substr( $sitename, 0, 4 ) == 'www.' ) {
-			$sitename = substr( $sitename, 4 );
+		if (isset($_SERVER['SERVER_NAME'])) {
+			$sitename = strtolower( $_SERVER['SERVER_NAME'] );
+			if ( substr( $sitename, 0, 4 ) === 'www.' ) {
+				$sitename = substr( $sitename, 4 );
+			}
+		}
+		else {
+			// likely running from WP-CLI with no hostname set, so fake it
+			$sitename = 'server-name.invalid';
 		}
 
 		// set default From name and address
