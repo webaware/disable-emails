@@ -2,8 +2,9 @@
 
 ## Changelog
 
-### 1.5.1, soon...
+### 1.6.0, 2019-12-15
 
+* fixed: undefined index for `$_SERVER['SERVER_NAME']` when emails sent during wp-cli
 * added: indicator setting to show either a Toolbar indicator or a site-wide admin notice when emails are disabled
 * added: filter hook `disable_emails_indicator` for setting the indicator from code; accepts 'none', 'toolbar', 'notice'
 

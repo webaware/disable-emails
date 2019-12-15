@@ -8,7 +8,7 @@ Tags: disable emails, block emails
 Requires at least: 4.9
 Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 1.5.0
+Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,13 +80,21 @@ NB: if you activate the must-use plugin on a multisite, it will stop emails on a
 
 ## Upgrade Notice
 
-### 1.5.0
+### 1.6.0
 
-fixes PHP notice "Trying to get property 'ErrorInfo' of non-object"; supports running as a must-use plugin (mu-plugin); requires PHP 5.6+
+fixes undefined index when emails sent during wp-cli; adds WP admin indicator when emails are disabled
 
 ## Changelog
 
 The full changelog can be found [on GitHub](https://github.com/webaware/disable-emails/blob/master/changelog.md). Recent entries:
+
+### 1.6.0
+
+Released 2019-12-15
+
+* fixed: undefined index for `$_SERVER['SERVER_NAME']` when emails sent during wp-cli
+* added: indicator setting to show either a Toolbar indicator or a site-wide admin notice when emails are disabled
+* added: filter hook `disable_emails_indicator` for setting the indicator from code; accepts 'none', 'toolbar', 'notice'
 
 ### 1.5.0
 
