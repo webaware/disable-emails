@@ -25,7 +25,7 @@ if (!defined('ABSPATH')) {
 						<option value="<?= esc_attr($value); ?>"<?php selected($value, $settings['indicator']); ?>><?= esc_html($label); ?></option>
 					<?php endforeach; ?>
 					</select>
-					<p><em><?php esc_html_e('Select how you would like the admin to indicate that emails are disabled.', 'disable-emails'); ?></em></p>
+					<p><em><?php esc_html_e('Select how you would like to indicate in the WordPress admin that emails are disabled.', 'disable-emails'); ?></em></p>
 				</td>
 			</tr>
 
