@@ -45,7 +45,7 @@ class Plugin {
 		add_action('admin_init', [$this, 'adminInit']);
 		add_action('admin_menu', [$this, 'adminMenu']);
 		add_action('admin_enqueue_scripts', [$this, 'settingsScripts']);
-		add_action('admin_print_styles-' . self::SETTINGS_HOOK_SUFFIX, [$this, 'settingsStyles']);
+		add_action('admin_print_styles-' . self::SETTINGS_HOOK_SUFFIX, [$this, 'adminStyles']);
 		add_action('plugin_action_links_' . DISABLE_EMAILS_PLUGIN_NAME, [$this, 'pluginActionLinks']);
 		add_action('admin_notices', [$this, 'showWarningAlreadyDefined']);
 		add_filter('dashboard_glance_items', [$this, 'dashboardStatus'], 99);
@@ -59,7 +59,7 @@ class Plugin {
 
 				case INDICATOR_TOOLBAR:
 					add_action('admin_bar_menu', [$this, 'showIndicatorToolbar'], 500);
-					add_action('admin_print_styles', [$this, 'styleIndicatorToolbar']);
+					add_action('admin_print_styles', [$this, 'adminStyles']);
 					break;
 
 				case INDICATOR_NOTICE:
@@ -97,6 +97,14 @@ class Plugin {
 	}
 
 	/**
+	* enqueue styles for admin
+	*/
+	public function adminStyles() {
+		$ver = SCRIPT_DEBUG ? time() : DISABLE_EMAILS_VERSION;
+		wp_enqueue_style('disable-emails', plugins_url('css/admin.css', DISABLE_EMAILS_PLUGIN_FILE), [], $ver);
+	}
+
+	/**
 	* settings admin scripts
 	* @param string $hook_suffix
 	*/
@@ -114,13 +122,6 @@ class Plugin {
 				],
 			]);
 		}
-	}
-
-	/**
-	* settings admin styles
-	*/
-	public function settingsStyles() {
-		require DISABLE_EMAILS_PLUGIN_ROOT . 'views/settings-css.php';
 	}
 
 	/**
@@ -238,18 +239,6 @@ class Plugin {
 				],
 			]);
 		}
-	}
-
-	public function styleIndicatorToolbar() {
-		?>
-		<style>
-		#wpadminbar #wp-admin-bar-disable-emails-indicator .ab-icon::before {
-			content: "\f465";<?php /* dashicons-email */ ?>
-			top: 3px;
-			background: linear-gradient(to left top, transparent 45%, #dc3232 45%, #dc3232 55%, transparent 60%);
-		}
-		</style>
-		<?php
 	}
 
 	/**

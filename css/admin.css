@@ -1,0 +1,9 @@
+#wpadminbar #wp-admin-bar-disable-emails-indicator .ab-icon::before {
+	content: "\f465";	/* dashicons-email */
+	top: 3px;
+	background: linear-gradient(to left top, transparent 45%, #dc3232 45%, #dc3232 55%, transparent 60%);
+}
+
+.no-js .disable-emails-mu-buttons {
+	display: none;
+}
