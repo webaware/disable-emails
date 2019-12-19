@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.6.1, soon...
+
+* fixed: Toolbar indicator has no visible slash in Sunrise admin theme
+
 ### 1.6.0, 2019-12-15
 
 * fixed: undefined index for `$_SERVER['SERVER_NAME']` when emails sent during wp-cli
