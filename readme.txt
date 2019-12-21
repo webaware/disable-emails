@@ -8,7 +8,7 @@ Tags: disable emails, block emails
 Requires at least: 4.9
 Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 1.6.0
+Stable tag: 1.6.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,13 +80,20 @@ NB: if you activate the must-use plugin on a multisite, it will stop emails on a
 
 ## Upgrade Notice
 
-### 1.6.0
+### 1.6.1
 
-fixes undefined index when emails sent during wp-cli; adds WP admin indicator when emails are disabled
+Toolbar indicator now has a visible slash in Sunrise admin theme; fixed: undefined function is_plugin_active_for_network()
 
 ## Changelog
 
 The full changelog can be found [on GitHub](https://github.com/webaware/disable-emails/blob/master/changelog.md). Recent entries:
+
+### 1.6.1
+
+Released 2019-12-21
+
+* fixed: Toolbar indicator has no visible slash in Sunrise admin theme
+* fixed: undefined function `is_plugin_active_for_network()` (thanks [isabelc](https://github.com/isabelc)!)
 
 ### 1.6.0
 

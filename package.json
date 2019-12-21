@@ -1,6 +1,6 @@
 {
   "name": "disable-emails",
-  "version": "1.6.1-dev",
+  "version": "1.6.1",
   "description": "Disable Emails",
   "main": "Gruntfile.js",
   "devDependencies": {
