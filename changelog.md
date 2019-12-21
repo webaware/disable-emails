@@ -2,9 +2,10 @@
 
 ## Changelog
 
-### 1.6.1, soon...
+### 1.6.1, 2019-12-21
 
 * fixed: Toolbar indicator has no visible slash in Sunrise admin theme
+* fixed: undefined function `is_plugin_active_for_network()` (thanks [isabelc](https://github.com/isabelc)!)
 
 ### 1.6.0, 2019-12-15
 

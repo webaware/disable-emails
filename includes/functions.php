@@ -88,6 +88,8 @@ function mu_plugin_manage($action) {
 * @return string
 */
 function get_status_message() {
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
 	if (defined('DISABLE_EMAILS_MU_PLUGIN') && is_multisite()) {
 		/* translators: shown when emails are disabled for all sites in all networks in a multisite, with the must-use plugin */
 		$msg = __('Emails are disabled for all sites.', 'disable-emails');
