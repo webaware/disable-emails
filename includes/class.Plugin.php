@@ -2,6 +2,8 @@
 
 namespace webaware\disable_emails;
 
+use \DisableEmailsRequires as Requires;
+
 if (!defined('ABSPATH')) {
 	exit;
 }
@@ -47,7 +49,6 @@ class Plugin {
 		add_action('admin_enqueue_scripts', [$this, 'settingsScripts']);
 		add_action('admin_print_styles-' . self::SETTINGS_HOOK_SUFFIX, [$this, 'adminStyles']);
 		add_action('plugin_action_links_' . DISABLE_EMAILS_PLUGIN_NAME, [$this, 'pluginActionLinks']);
-		add_action('admin_notices', [$this, 'showWarningAlreadyDefined']);
 		add_filter('dashboard_glance_items', [$this, 'dashboardStatus'], 99);
 		add_filter('plugin_row_meta', [$this, 'addPluginDetailsLinks'], 10, 2);
 
@@ -73,6 +74,9 @@ class Plugin {
 					break;
 
 			}
+		}
+		else {
+			$this->showWarningAlreadyDefined();
 		}
 
 		// maybe stop BuddyPress emails too
@@ -217,8 +221,16 @@ class Plugin {
 	* warn that wp_mail() is defined so emails cannot be disabled!
 	*/
 	public function showWarningAlreadyDefined() {
-		if (!$this->wpmailReplaced) {
-			include DISABLE_EMAILS_PLUGIN_ROOT . 'views/warn-already-defined.php';
+		$requires = new Requires();
+
+		$requires->addNotice(
+			esc_html__('Emails are not disabled! Something else has already declared wp_mail(), so Disable Emails cannot stop emails being sent!', 'disable-emails')
+		);
+
+		if (!defined('DISABLE_EMAILS_MU_PLUGIN')) {
+			$requires->addNotice(
+				esc_html__('Try enabling the must-use plugin from the settings page.', 'disable-emails')
+			);
 		}
 	}
 

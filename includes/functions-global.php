@@ -9,30 +9,22 @@ if (!defined('ABSPATH')) {
 * maybe show notice of minimum PHP version failure
 */
 function disable_emails_fail_php_version() {
-	if (disable_emails_can_show_admin_notices()) {
-		disable_emails_load_text_domain();
-		include DISABLE_EMAILS_PLUGIN_ROOT . 'views/requires-php.php';
-	}
-}
+	disable_emails_load_text_domain();
 
-/**
-* test whether we can show admin-related notices
-* @return bool
-*/
-function disable_emails_can_show_admin_notices() {
-	global $pagenow, $hook_suffix;
+	$requires = new DisableEmailsRequires();
 
-	// only on specific pages
-	if ($pagenow !== 'plugins.php') {
-		return false;
-	}
-
-	// only bother admins / plugin installers / option setters with this stuff
-	if (!current_user_can('activate_plugins') && !current_user_can('manage_options')) {
-		return false;
-	}
-
-	return true;
+	$requires->addNotice(
+		disable_emails_external_link(
+			/* translators: %1$s: minimum required version number, %2$s: installed version number */
+			sprintf(esc_html__('It requires PHP %1$s or higher; your website has PHP %2$s which is {{a}}old, obsolete, and unsupported{{/a}}.', 'disable-emails'),
+				esc_html(DISABLE_EMAILS_MIN_PHP), esc_html(PHP_VERSION)),
+			'https://www.php.net/supported-versions.php'
+		)
+	);
+	$requires->addNotice(
+		/* translators: %s: minimum recommended version number */
+		sprintf(esc_html__('Please upgrade your website hosting. At least PHP %s is recommended.', 'disable-emails'), '7.3')
+	);
 }
 
 /**

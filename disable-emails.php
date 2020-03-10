@@ -44,6 +44,7 @@ define('DISABLE_EMAILS_MIN_PHP', '5.6');
 define('DISABLE_EMAILS_VERSION', '1.6.1');
 
 require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/functions-global.php';
+require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/class.Requires.php';
 
 if (version_compare(PHP_VERSION, DISABLE_EMAILS_MIN_PHP, '<')) {
 	add_action('admin_notices', 'disable_emails_fail_php_version');
