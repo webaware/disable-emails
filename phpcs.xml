@@ -38,8 +38,8 @@
 
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax">
 		<exclude-pattern>disable-emails.php</exclude-pattern>
+		<exclude-pattern>includes/class.Requires.php</exclude-pattern>
 		<exclude-pattern>includes/functions-global.php</exclude-pattern>
-		<exclude-pattern>views/requires-php.php</exclude-pattern>
 	</rule>
 
 	<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing">
