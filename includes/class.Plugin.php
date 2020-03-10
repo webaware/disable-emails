@@ -66,6 +66,12 @@ class Plugin {
 					add_action('admin_notices', [$this, 'showIndicatorNotice']);
 					break;
 
+				case INDICATOR_NOTICE_AND_TB:
+					add_action('admin_notices', [$this, 'showIndicatorNotice']);
+					add_action('admin_bar_menu', [$this, 'showIndicatorToolbar'], 500);
+					add_action('admin_print_styles', [$this, 'adminStyles']);
+					break;
+
 			}
 		}
 
@@ -140,6 +146,7 @@ class Plugin {
 		$indicators = [
 			INDICATOR_TOOLBAR		=> _x('Toolbar indicator', 'admin indicator setting', 'disable-emails'),
 			INDICATOR_NOTICE		=> _x('notice on all admin pages', 'admin indicator setting', 'disable-emails'),
+			INDICATOR_NOTICE_AND_TB	=> _x('notice and Toolbar indicator', 'admin indicator setting', 'disable-emails'),
 			INDICATOR_NONE			=> _x('no indicator', 'admin indicator setting', 'disable-emails'),
 		];
 
@@ -155,7 +162,7 @@ class Plugin {
 		$output = [];
 
 		$output['indicator'] = isset($input['indicator']) ? $input['indicator'] : INDICATOR_TOOLBAR;
-		if (!in_array($output['indicator'], [INDICATOR_NONE, INDICATOR_TOOLBAR, INDICATOR_NOTICE])) {
+		if (!in_array($output['indicator'], [INDICATOR_NONE, INDICATOR_TOOLBAR, INDICATOR_NOTICE, INDICATOR_NOTICE_AND_TB])) {
 			add_settings_error(OPT_SETTINGS, 'indicator', _x('Indicator is invalid', 'settings error', 'disable-emails'));
 		}
 

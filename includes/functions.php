@@ -13,6 +13,7 @@ const OPT_SETTINGS				= 'disable_emails';
 const INDICATOR_NONE			= 'none';
 const INDICATOR_TOOLBAR			= 'toolbar';
 const INDICATOR_NOTICE			= 'notice';
+const INDICATOR_NOTICE_AND_TB	= 'notice_toolbar';
 
 /**
 * get current plugin settings, use defaults if settings not yet saved
