@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.6.2, 2020-03-10
+
+* fixed: activating the must-use plugin throws an error if the mu-plugins folder is missing
+
 ### 1.6.1, 2019-12-21
 
 * fixed: Toolbar indicator has no visible slash in Sunrise admin theme

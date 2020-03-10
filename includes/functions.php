@@ -55,8 +55,17 @@ function mu_plugin_manage($action) {
 
 	$has_mu_plugin = defined('DISABLE_EMAILS_MU_PLUGIN');
 
-	$source = wp_normalize_path(DISABLE_EMAILS_PLUGIN_ROOT . '/mu-plugin/disable-emails-mu.php');
-	$target = wp_normalize_path(WPMU_PLUGIN_DIR . '/disable-emails-mu.php');
+	$wpmu_plugin_dir = rtrim(wp_normalize_path(WPMU_PLUGIN_DIR), '/');
+	if (!is_dir($wpmu_plugin_dir)) {
+		// folder does not exist, create it now
+		wp_mkdir_p($wpmu_plugin_dir);
+		if (!is_dir($wpmu_plugin_dir)) {
+			throw new Exception(__('Unable to create folder for Disable Emails must-use plugin.', 'disable-emails'));
+		}
+	}
+
+	$source = wp_normalize_path(DISABLE_EMAILS_PLUGIN_ROOT . 'mu-plugin/disable-emails-mu.php');
+	$target = "$wpmu_plugin_dir/disable-emails-mu.php";
 
 	switch ($action) {
 
