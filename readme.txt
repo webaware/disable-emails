@@ -8,7 +8,7 @@ Tags: disable emails, block emails
 Requires at least: 4.9
 Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,13 +80,19 @@ NB: if you activate the must-use plugin on a multisite, it will stop emails on a
 
 ## Upgrade Notice
 
-### 1.6.2
+### 1.6.3
 
-fixed: activating the must-use plugin throws an error if the mu-plugins folder is missing
+fixed: unhandled `phpmailerException` exceptions
 
 ## Changelog
 
 The full changelog can be found [on GitHub](https://github.com/webaware/disable-emails/blob/master/changelog.md). Recent entries:
+
+### 1.6.3
+
+Released 2020-03-19
+
+* fixed: unhandled `phpmailerException` exceptions (thanks, [y0uri](https://wordpress.org/support/users/y0uri/)!)
 
 ### 1.6.2
 
