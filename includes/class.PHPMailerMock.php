@@ -3,6 +3,7 @@
 namespace webaware\disable_emails;
 
 use \PHPMailer;
+use \phpmailerException;
 
 if (!defined('ABSPATH')) {
 	exit;

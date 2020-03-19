@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.6.3, 2020-03-19
+
+* fixed: unhandled `phpmailerException` exceptions (thanks, [y0uri](https://wordpress.org/support/users/y0uri/)!)
+
 ### 1.6.2, 2020-03-10
 
 * fixed: activating the must-use plugin throws an error if the mu-plugins folder is missing
