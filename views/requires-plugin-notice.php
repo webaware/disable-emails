@@ -2,8 +2,6 @@
 if (!defined('ABSPATH')) {
 	exit;
 }
-
-global $wp_list_table;
 ?>
 
 <tr class="active paused">

@@ -50,6 +50,12 @@ class DisableEmailsRequires {
 	* show plugin page row with requires notices
 	*/
 	public function showPluginRowNotices() {
+		global $wp_list_table;
+
+		if (empty($wp_list_table)) {
+			return;
+		}
+
 		$notices = $this->notices;
 		require DISABLE_EMAILS_PLUGIN_ROOT . 'views/requires-plugin-notice.php';
 	}
