@@ -2,8 +2,8 @@
 
 namespace webaware\disable_emails;
 
-use \PHPMailer;
-use \phpmailerException;
+use \PHPMailer\PHPMailer\PHPMailer;
+use \PHPMailer\PHPMailer\phpmailerException;
 
 if (!defined('ABSPATH')) {
 	exit;
@@ -22,7 +22,8 @@ class PHPMailerMock {
 	*/
 	public function __construct() {
 
-		require_once ABSPATH . WPINC . '/class-phpmailer.php';
+		require_once ABSPATH . WPINC . '/PHPMailer/PHPMailer.php';
+		require_once ABSPATH . WPINC . '/PHPMailer/Exception.php';
 		$this->phpmailer = new PHPMailer( true );
 
 		// build map of allowed function calls
@@ -51,7 +52,6 @@ class PHPMailerMock {
 			'hasMultiBytes',
 			'base64EncodeWrapMB',
 			'encodeQP',
-			'encodeQPphp',
 			'encodeQ',
 			'addStringAttachment',
 			'addEmbeddedImage',
