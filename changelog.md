@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.7.0, 2020-08-11
+
+* fixed: WordPress 5.5 compatibility
+
 ### 1.6.3, 2020-03-19
 
 * fixed: unhandled `phpmailerException` exceptions (thanks, [y0uri](https://wordpress.org/support/users/y0uri/)!)

@@ -5,10 +5,10 @@ Plugin URI: https://shop.webaware.com.au/downloads/disable-emails/
 Author URI: https://shop.webaware.com.au/
 Donate link: https://shop.webaware.com.au/donations/?donation_for=Disable+Emails
 Tags: disable emails, block emails
-Requires at least: 4.9
-Tested up to: 5.4
+Requires at least: 5.5
+Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 1.6.3
+Stable tag: 1.7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,24 +80,16 @@ NB: if you activate the must-use plugin on a multisite, it will stop emails on a
 
 ## Upgrade Notice
 
-### 1.6.3
+### 1.7.0
 
-fixed: unhandled `phpmailerException` exceptions
+WordPress 5.5 compatibility
 
 ## Changelog
 
 The full changelog can be found [on GitHub](https://github.com/webaware/disable-emails/blob/master/changelog.md). Recent entries:
 
-### 1.6.3
+### 1.7.0
 
-Released 2020-03-19
+Released 2020-08-11
 
-* fixed: unhandled `phpmailerException` exceptions (thanks, [y0uri](https://wordpress.org/support/users/y0uri/)!)
-
-### 1.6.2
-
-Released 2020-03-10
-
-* fixed: activating the must-use plugin throws an error if the mu-plugins folder is missing
-* changed: can now enable both a Toolbar indicator and a site-wide admin notice when emails are disabled
-* changed: filter hook `disable_emails_indicator` also accepts 'notice_toolbar' to enable both notice and Toolbar indicator
+* fixed: WordPress 5.5 compatibility
