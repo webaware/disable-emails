@@ -25,6 +25,8 @@ WordPress websites can send emails for a variety of reasons -- e.g user registra
 * bulk-loading data into websites which might trigger emails
 * adding new sites into multisite installations
 
+> NB: if you need to run this plugin on WordPress 5.4 or earlier, and must install manually from a .zip file, please install version 1.6.3 which you can [download from the Advanced page for the plugin](https://wordpress.org/plugins/disable-emails/advanced/). Since version 1.7.0, WordPress 5.5 or later is required.
+
 ### Translations
 
 Many thanks to the generous efforts of our translators:
