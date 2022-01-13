@@ -1,17 +1,16 @@
 {
   "name": "disable-emails",
-  "version": "1.7.0",
+  "version": "1.8.0-dev",
   "description": "Disable Emails",
   "main": "Gruntfile.js",
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.1",
-    "@babel/preset-env": "^7.11.0",
-    "grunt": "^1.2.1",
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.8",
+    "grunt": "^1.4.1",
     "grunt-babel": "^8.0.0",
-    "grunt-contrib-uglify": "^5.0.0",
-    "grunt-eslint": "^23.0.0",
-    "grunt-shell": "^3.0.1"
+    "grunt-contrib-uglify": "^5.0.1",
+    "grunt-eslint": "^24.0.0"
   },
   "repository": {
     "type": "git",

@@ -6,12 +6,13 @@ module.exports = function (grunt) {
 		eslint: {
 			all: [
 				"Gruntfile.js",
-				"es6/*.js"
+				"source/js/*.js"
 			]
 		},
 
 		babel: {
 			options: {
+				sourceType: "script",
 				presets: [
 					'@babel/preset-env',
 				]
@@ -19,9 +20,9 @@ module.exports = function (grunt) {
 			dist: {
 				files: [{
 					"expand": true,
-					"cwd": "es6",
+					"cwd": "source/js",
 					"src": ["**/*.js"],
-					"dest": "js/",
+					"dest": "static/js/",
 					"ext": ".js",
 				}]
 			}
@@ -37,33 +38,14 @@ module.exports = function (grunt) {
 				},
 				files: [{
 					expand: true,
-					cwd: "js",
-					dest: "js",
+					cwd: "static/js",
+					dest: "static/js",
 					src: [
 						"*.js",
 						"!*.min.js"
 					],
 					ext: '.min.js'
 				}]
-			}
-		},
-
-		shell: {
-			// @link https://github.com/sindresorhus/grunt-shell
-			dist: {
-				command: [
-					"rm -rf .dist",
-					"mkdir .dist",
-					"git archive HEAD --prefix=<%= pkg.name %>/ --format=zip -9 -o .dist/<%= pkg.name %>-<%= pkg.version %>.zip",
-				].join("&&")
-			},
-			wpsvn: {
-				command: [
-					"svn up .wordpress.org",
-					"rm -rf .wordpress.org/trunk",
-					"mkdir .wordpress.org/trunk",
-					"git archive HEAD --format=tar | tar x --directory=.wordpress.org/trunk",
-				].join("&&")
 			}
 		}
 
@@ -72,10 +54,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-babel");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-eslint");
-	grunt.loadNpmTasks('grunt-shell');
 
-	grunt.registerTask("es6", ["babel","uglify"]);
-	grunt.registerTask("release", ["shell:dist"]);
-	grunt.registerTask("wpsvn", ["shell:wpsvn"]);
+	grunt.registerTask("js", ["babel","uglify"]);
 
 };

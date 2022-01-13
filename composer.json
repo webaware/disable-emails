@@ -4,9 +4,10 @@
 		"squizlabs/php_codesniffer": "*",
 		"dealerdirect/phpcodesniffer-composer-installer": "*"
 	},
-	"scripts": {
-		"lint": "php -l disable-emails.php; find includes views -name '*.php' -exec php -l '{}' \\;",
-		"sniff": "phpcs -ps && phpcs -ps --standard=phpcs-5.2.xml"
-	},
-	"prefer-stable" : true
+	"prefer-stable" : true,
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	}
 }
