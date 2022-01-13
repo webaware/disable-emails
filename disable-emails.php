@@ -41,7 +41,7 @@ define('DISABLE_EMAILS_PLUGIN_FILE', __FILE__);
 define('DISABLE_EMAILS_PLUGIN_ROOT', dirname(__FILE__) . '/');
 define('DISABLE_EMAILS_PLUGIN_NAME', basename(dirname(__FILE__)) . '/' . basename(__FILE__));
 define('DISABLE_EMAILS_MIN_PHP', '5.6');
-define('DISABLE_EMAILS_VERSION', '1.7.2');
+define('DISABLE_EMAILS_VERSION', '1.8.0-dev');
 
 require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/functions-global.php';
 require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/class.Requires.php';
