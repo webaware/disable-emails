@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.8.0, soon...
+
+* fixed: mock PHPMailer object did not have recipient addresses for developers to inspect (thanks, [SpartakusMd](https://wordpress.org/support/users/spartakusmd/)!)
+
 ### 1.7.0, 2020-08-11
 
 * fixed: WordPress 5.5 compatibility

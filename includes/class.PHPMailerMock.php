@@ -122,6 +122,9 @@ class PHPMailerMock {
 			extract( apply_filters( 'wp_mail', compact( 'to', 'subject', 'message', 'headers', 'attachments' ) ), EXTR_IF_EXISTS );
 		}
 
+		// allow hookers to see recipient addresses on mock PHPMailer object
+		$this->_addTo($to);
+
 		// set mail's subject and body
 		$this->phpmailer->Subject = $subject;
 		$this->phpmailer->Body = $message;
@@ -214,6 +217,27 @@ class PHPMailerMock {
 		}
 		else {
 			$this->phpmailer->From = trim($from);
+		}
+	}
+
+	/**
+	* add To address(es)
+	* @param string|array $to
+	*/
+	protected function _addTo($to) {
+		$recipients = is_array($to) ? $to : explode(',', $to);
+
+		foreach ($recipients as $address) {
+			$name = '';
+
+			if (preg_match('/(.*)<(.+)>/', $address, $matches)) {
+				if (count($matches) === 3) {
+					$name = $matches[1];
+					$address = $matches[2];
+				}
+			}
+
+			$this->phpmailer->addAddress($address, $name);
 		}
 	}
 
