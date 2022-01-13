@@ -1,13 +1,13 @@
 (function(settings) {
 
 	addHandler("disable-emails-mu-enable", "click", function() {
-		if (confirm(settings.msg.mu_activate)) {
+		if (window.confirm(settings.msg.mu_activate)) {
 			mustUse('activate');
 		}
 	});
 
 	addHandler("disable-emails-mu-disable", "click", function() {
-		if (confirm(settings.msg.mu_deactivate)) {
+		if (window.confirm(settings.msg.mu_deactivate)) {
 			mustUse('deactivate');
 		}
 	});

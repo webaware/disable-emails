@@ -6,6 +6,7 @@
 	<file>views/requires-admin-notice.php</file>
 	<file>views/requires-plugin-notice.php</file>
 	<file>includes/class.Requires.php</file>
+	<file>includes/functions-global.php</file>
 
 	<arg name="basepath" value="." />
 	<arg name="colors" />
