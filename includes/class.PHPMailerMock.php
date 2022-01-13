@@ -2,8 +2,8 @@
 
 namespace webaware\disable_emails;
 
-use \PHPMailer\PHPMailer\PHPMailer;
-use \PHPMailer\PHPMailer\phpmailerException;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception as phpmailerException;
 
 if (!defined('ABSPATH')) {
 	exit;
@@ -210,14 +210,9 @@ class PHPMailerMock {
 	* @param string $from
 	*/
 	protected function _setFrom($from) {
-		// check for address in format "Some Name <address@example.com>"
-		if ( preg_match( '/(.*)<(.+)>/', $from, $matches ) ) {
-			$this->phpmailer->FromName = trim($matches[1]);
-			$this->phpmailer->From = $matches[2];
-		}
-		else {
-			$this->phpmailer->From = trim($from);
-		}
+		$recipient = new EmailAddress($from);
+		$this->phpmailer->FromName = trim($recipient->name);
+		$this->phpmailer->From = $recipient->address;
 	}
 
 	/**
@@ -228,16 +223,8 @@ class PHPMailerMock {
 		$recipients = is_array($to) ? $to : explode(',', $to);
 
 		foreach ($recipients as $address) {
-			$name = '';
-
-			if (preg_match('/(.*)<(.+)>/', $address, $matches)) {
-				if (count($matches) === 3) {
-					$name = $matches[1];
-					$address = $matches[2];
-				}
-			}
-
-			$this->phpmailer->addAddress($address, $name);
+			$recipient = new EmailAddress($address);
+			$this->phpmailer->addAddress($recipient->address, $recipient->name);
 		}
 	}
 
@@ -246,17 +233,10 @@ class PHPMailerMock {
 	* @param array $addresses
 	*/
 	protected function _addCC($addresses) {
-		foreach ( $addresses as $address ) {
+		foreach ($addresses as $address) {
 			try {
-				// check for address in format "Some Name <address@example.com>"
-				if ( preg_match( '/(.*)<(.+)>/', $address, $matches ) ) {
-					$name = trim($matches[1]);
-					$address = trim($matches[2]);
-					$this->phpmailer->addCC( $address, $name );
-				}
-				else {
-					$this->phpmailer->addCC( $address );
-				}
+				$recipient = new EmailAddress($address);
+				$this->phpmailer->addCC($recipient->address, $recipient->name);
 			}
 			catch ( phpmailerException $e ) {
 				continue;
@@ -269,17 +249,10 @@ class PHPMailerMock {
 	* @param array $addresses
 	*/
 	protected function _addBCC($addresses) {
-		foreach ( $addresses as $address ) {
+		foreach ($addresses as $address) {
 			try {
-				// check for address in format "Some Name <address@example.com>"
-				if ( preg_match( '/(.*)<(.+)>/', $address, $matches ) ) {
-					$name = trim($matches[1]);
-					$address = trim($matches[2]);
-					$this->phpmailer->addBCC( $address, $name );
-				}
-				else {
-					$this->phpmailer->addBCC( $address );
-				}
+				$recipient = new EmailAddress($address);
+				$this->phpmailer->addBCC($recipient->address, $recipient->name);
 			}
 			catch ( phpmailerException $e ) {
 				continue;

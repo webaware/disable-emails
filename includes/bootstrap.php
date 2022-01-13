@@ -12,6 +12,7 @@ require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/functions.php';
 // replace standard WordPress wp_mail() if nobody else has already done it
 if (!function_exists('wp_mail')) {
 
+	require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/class.EmailAddress.php';
 	require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/class.PHPMailerMock.php';
 
 	function wp_mail( $to, $subject, $message, $headers = '', $attachments = [] ) {
