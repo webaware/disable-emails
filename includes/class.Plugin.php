@@ -111,7 +111,7 @@ class Plugin {
 	*/
 	public function adminStyles() {
 		$ver = SCRIPT_DEBUG ? time() : DISABLE_EMAILS_VERSION;
-		wp_enqueue_style('disable-emails', plugins_url('css/admin.css', DISABLE_EMAILS_PLUGIN_FILE), [], $ver);
+		wp_enqueue_style('disable-emails', plugins_url('static/css/admin.css', DISABLE_EMAILS_PLUGIN_FILE), [], $ver);
 	}
 
 	/**
@@ -123,7 +123,7 @@ class Plugin {
 			$min = SCRIPT_DEBUG ? '' : '.min';
 			$ver = SCRIPT_DEBUG ? time() : DISABLE_EMAILS_VERSION;
 
-			wp_enqueue_script('disable-emails-settings', plugins_url("js/settings$min.js", DISABLE_EMAILS_PLUGIN_FILE), [], $ver, true);
+			wp_enqueue_script('disable-emails-settings', plugins_url("static/js/settings$min.js", DISABLE_EMAILS_PLUGIN_FILE), [], $ver, true);
 			wp_localize_script('disable-emails-settings', 'disable_emails_settings', [
 				'mu_url'		=> wp_nonce_url(admin_url('options-general.php?page=disable-emails'), 'disable-emails-mu'),
 				'msg'			=> [
