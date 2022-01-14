@@ -9,14 +9,14 @@ class PluginTest extends TestCase {
 	/**
 	 * can get instance of plugin
 	 */
-	public function testPlugin() : void {
+	public function testPlugin() {
 		$this->assertTrue(Plugin::getInstance() instanceof Plugin);
 	}
 
 	/**
 	 * mock PHPMailer class has been loaded
 	 */
-	public function testMockLoaded() : void {
+	public function testMockLoaded() {
 		$this->assertTrue(class_exists('webaware\\disable_emails\\PHPMailerMock', false));
 	}
 

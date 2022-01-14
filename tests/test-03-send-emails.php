@@ -13,7 +13,7 @@ class SendEmailTest extends TestCase {
 	/**
 	 * ensure that environment has been specified
 	 */
-	public function testEnvironment() : void {
+	public function testEnvironment() {
 		global $plugin_test_env;
 
 		$this->assertArrayHasKey('email_sender', $plugin_test_env);
@@ -27,7 +27,7 @@ class SendEmailTest extends TestCase {
 	 * single-recipient test
 	 * @depends testEnvironment
 	 */
-	public function testSingle() : void {
+	public function testSingle() {
 		global $plugin_test_env;
 
 		$from		= sprintf('Test Sender <%s>', $plugin_test_env['email_sender']);
@@ -46,7 +46,7 @@ class SendEmailTest extends TestCase {
 	 * single-recipient with CC/BCC test
 	 * @depends testEnvironment
 	 */
-	public function testSingleWithCC() : void {
+	public function testSingleWithCC() {
 		global $plugin_test_env;
 
 		$from		= sprintf('Test Sender <%s>', $plugin_test_env['email_sender']);
@@ -69,7 +69,7 @@ class SendEmailTest extends TestCase {
 	 * multiple recipients test
 	 * @depends testEnvironment
 	 */
-	public function testMultiple() : void {
+	public function testMultiple() {
 		global $plugin_test_env;
 
 		$from		= sprintf('Test Sender <%s>', $plugin_test_env['email_sender']);

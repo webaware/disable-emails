@@ -12,7 +12,7 @@ class EmailAddressTest extends TestCase {
 	/**
 	 * ensure that environment has been specified
 	 */
-	public function testEnvironment() : void {
+	public function testEnvironment() {
 		global $plugin_test_env;
 
 		$this->assertArrayHasKey('email_sender', $plugin_test_env);
@@ -22,7 +22,7 @@ class EmailAddressTest extends TestCase {
 	 * test simplistic address-only email address
 	 * @depends testEnvironment
 	 */
-	public function testSimple() : void {
+	public function testSimple() {
 		global $plugin_test_env;
 
 		$address = new EmailAddress($plugin_test_env['email_sender']);
@@ -35,7 +35,7 @@ class EmailAddressTest extends TestCase {
 	 * test basic Name <address> email address
 	 * @depends testEnvironment
 	 */
-	public function testNameAddress() : void {
+	public function testNameAddress() {
 		global $plugin_test_env;
 
 		$name = 'Test Only';
@@ -50,7 +50,7 @@ class EmailAddressTest extends TestCase {
 	 * test quoted "Some Name" <address> email address
 	 * @depends testEnvironment
 	 */
-	public function testQuotedNameAddress() : void {
+	public function testQuotedNameAddress() {
 		global $plugin_test_env;
 
 		$name = '"Test Only"';
@@ -65,7 +65,7 @@ class EmailAddressTest extends TestCase {
 	 * test email address with punctuation in the name
 	 * @depends testEnvironment
 	 */
-	public function testPunctuatedName() : void {
+	public function testPunctuatedName() {
 		global $plugin_test_env;
 
 		$name = 'Test Only';
