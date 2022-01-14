@@ -66,8 +66,6 @@ class EmailAddressTest extends TestCase {
 	 * @depends testEnvironment
 	 */
 	public function testPunctuatedName() {
-		global $plugin_test_env;
-
 		$name = 'Test Only';
 		$punctuated = 'test+extra@example.com';
 		$email_address = sprintf('%s <%s>', $name, $punctuated);
