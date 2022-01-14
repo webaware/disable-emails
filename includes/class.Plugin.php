@@ -9,8 +9,8 @@ if (!defined('ABSPATH')) {
 }
 
 /**
-* class for managing the plugin
-*/
+ * class for managing the plugin
+ */
 class Plugin {
 
 	protected $wpmailReplaced = false;
@@ -18,9 +18,9 @@ class Plugin {
 	const SETTINGS_HOOK_SUFFIX = 'settings_page_disable-emails';
 
 	/**
-	* static method for getting the instance of this singleton object
-	* @return self
-	*/
+	 * static method for getting the instance of this singleton object
+	 * @return self
+	 */
 	public static function getInstance() {
 		static $instance = null;
 
@@ -32,13 +32,13 @@ class Plugin {
 	}
 
 	/**
-	* hide constructor
-	*/
+	 * hide constructor
+	 */
 	private function __construct() {}
 
 	/**
-	* initialise plugin
-	*/
+	 * initialise plugin
+	 */
 	public function pluginStart() {
 		$this->wpmailReplaced = class_exists(__NAMESPACE__ . '\\PHPMailerMock', false);
 
@@ -92,32 +92,32 @@ class Plugin {
 	}
 
 	/**
-	* admin_init action
-	*/
+	 * admin_init action
+	 */
 	public function adminInit() {
 		add_settings_section(OPT_SETTINGS, false, false, OPT_SETTINGS);
 		register_setting(OPT_SETTINGS, OPT_SETTINGS, [$this, 'settingsValidate']);
 	}
 
 	/**
-	* admin menu items
-	*/
+	 * admin menu items
+	 */
 	public function adminMenu() {
 		add_options_page('Disable Emails', 'Disable Emails', 'manage_options', 'disable-emails', [$this, 'settingsPage']);
 	}
 
 	/**
-	* enqueue styles for admin
-	*/
+	 * enqueue styles for admin
+	 */
 	public function adminStyles() {
 		$ver = SCRIPT_DEBUG ? time() : DISABLE_EMAILS_VERSION;
 		wp_enqueue_style('disable-emails', plugins_url('static/css/admin.css', DISABLE_EMAILS_PLUGIN_FILE), [], $ver);
 	}
 
 	/**
-	* settings admin scripts
-	* @param string $hook_suffix
-	*/
+	 * settings admin scripts
+	 * @param string $hook_suffix
+	 */
 	public function settingsScripts($hook_suffix) {
 		if ($hook_suffix === self::SETTINGS_HOOK_SUFFIX) {
 			$min = SCRIPT_DEBUG ? '' : '.min';
@@ -135,8 +135,8 @@ class Plugin {
 	}
 
 	/**
-	* settings admin
-	*/
+	 * settings admin
+	 */
 	public function settingsPage() {
 		$settings = get_plugin_settings();
 		$has_mu_plugin = defined('DISABLE_EMAILS_MU_PLUGIN');
@@ -158,10 +158,10 @@ class Plugin {
 	}
 
 	/**
-	* validate settings on save
-	* @param array $input
-	* @return array
-	*/
+	 * validate settings on save
+	 * @param array $input
+	 * @return array
+	 */
 	public function settingsValidate($input) {
 		$output = [];
 
@@ -188,10 +188,10 @@ class Plugin {
 	}
 
 	/**
-	* add plugin action links on plugins page
-	* @param array $links
-	* @return array
-	*/
+	 * add plugin action links on plugins page
+	 * @param array $links
+	 * @return array
+	 */
 	public function pluginActionLinks($links) {
 		if (current_user_can('manage_options')) {
 			// add settings link
@@ -204,8 +204,8 @@ class Plugin {
 	}
 
 	/**
-	* action hook for adding plugin details links
-	*/
+	 * action hook for adding plugin details links
+	 */
 	public function addPluginDetailsLinks($links, $file) {
 		if ($file === DISABLE_EMAILS_PLUGIN_NAME) {
 			$links[] = sprintf('<a href="https://wordpress.org/support/plugin/disable-emails" target="_blank" rel="noopener">%s</a>', _x('Get help', 'plugin details links', 'disable-emails'));
@@ -218,8 +218,8 @@ class Plugin {
 	}
 
 	/**
-	* warn that wp_mail() is defined so emails cannot be disabled!
-	*/
+	 * warn that wp_mail() is defined so emails cannot be disabled!
+	 */
 	public function showWarningAlreadyDefined() {
 		$requires = new Requires();
 
@@ -235,8 +235,8 @@ class Plugin {
 	}
 
 	/**
-	* admin notice for indicator of disabled emails status
-	*/
+	 * admin notice for indicator of disabled emails status
+	 */
 	public function showIndicatorNotice() {
 		if (current_user_can('activate_plugins') && current_user_can('manage_options')) {
 			include DISABLE_EMAILS_PLUGIN_ROOT . 'views/indicator-notice.php';
@@ -244,9 +244,9 @@ class Plugin {
 	}
 
 	/**
-	* Toolbar indicator of disabled emails status
-	* @param WP_Admin_Bar $admin_bar
-	*/
+	 * Toolbar indicator of disabled emails status
+	 * @param WP_Admin_Bar $admin_bar
+	 */
 	public function showIndicatorToolbar($admin_bar) {
 		if (current_user_can('activate_plugins') && current_user_can('manage_options')) {
 			$admin_bar->add_node([
@@ -261,9 +261,9 @@ class Plugin {
 	}
 
 	/**
-	* show on admin dashboard that emails have been disabled
-	* @param array $glances
-	*/
+	 * show on admin dashboard that emails have been disabled
+	 * @param array $glances
+	 */
 	public function dashboardStatus($glances) {
 		if ($this->wpmailReplaced) {
 			$dash_msg = get_status_message();
@@ -274,17 +274,17 @@ class Plugin {
 	}
 
 	/**
-	* force Events Manager to use wp_mail(), so that we can disable it
-	* @param string|bool $return
-	* @return string
-	*/
+	 * force Events Manager to use wp_mail(), so that we can disable it
+	 * @param string|bool $return
+	 * @return string
+	 */
 	public function forceEventsManagerDisable($return) {
 		return 'wp_mail';
 	}
 
 	/**
-	* cancel Events Manager hook forcing wp_mail() because we're on its settings page
-	*/
+	 * cancel Events Manager hook forcing wp_mail() because we're on its settings page
+	 */
 	public function cancelEventsManagerDisable() {
 		remove_filter('pre_option_dbem_rsvp_mail_send_method', [$this, 'forceEventsManagerDisable']);
 	}

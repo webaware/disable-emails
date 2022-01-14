@@ -26,7 +26,7 @@ if (!function_exists('wp_mail')) {
 }
 
 /**
-* kick start the plugin
-*/
+ * kick start the plugin
+ */
 require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/class.Plugin.php';
 Plugin::getInstance()->pluginStart();

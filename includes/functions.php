@@ -16,9 +16,9 @@ const INDICATOR_NOTICE			= 'notice';
 const INDICATOR_NOTICE_AND_TB	= 'notice_toolbar';
 
 /**
-* get current plugin settings, use defaults if settings not yet saved
-* @return array
-*/
+ * get current plugin settings, use defaults if settings not yet saved
+ * @return array
+ */
 function get_plugin_settings() {
 	$defaults = [
 		'wp_mail'				=> 1,
@@ -36,19 +36,19 @@ function get_plugin_settings() {
 }
 
 /**
-* can current user activate/deactivate the must-use plugin?
-* @return bool
-*/
+ * can current user activate/deactivate the must-use plugin?
+ * @return bool
+ */
 function has_mu_plugin_permission() {
 	return current_user_can(is_multisite() ? 'manage_network_plugins' : 'activate_plugins');
 }
 
 /**
-* install, update, or remove the must-use plugin
-* @param string $action
-* @return bool
-* @throws Exception
-*/
+ * install, update, or remove the must-use plugin
+ * @param string $action
+ * @return bool
+ * @throws Exception
+ */
 function mu_plugin_manage($action) {
 	if (!has_mu_plugin_permission()) {
 		throw new Exception(__('No permission to manage Disable Emails must-use plugin.', 'disable-emails'));
@@ -94,9 +94,9 @@ function mu_plugin_manage($action) {
 }
 
 /**
-* get message for current active status
-* @return string
-*/
+ * get message for current active status
+ * @return string
+ */
 function get_status_message() {
 	require_once ABSPATH . 'wp-admin/includes/plugin.php';
 

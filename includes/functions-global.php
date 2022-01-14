@@ -6,8 +6,8 @@ if (!defined('ABSPATH')) {
 }
 
 /**
-* maybe show notice of minimum PHP version failure
-*/
+ * maybe show notice of minimum PHP version failure
+ */
 function disable_emails_fail_php_version() {
 	disable_emails_load_text_domain();
 
@@ -28,18 +28,18 @@ function disable_emails_fail_php_version() {
 }
 
 /**
-* load text translations
-*/
+ * load text translations
+ */
 function disable_emails_load_text_domain() {
 	load_plugin_textdomain('disable-emails');
 }
 
 /**
-* replace link placeholders with an external link
-* @param string $template
-* @param string $url
-* @return string
-*/
+ * replace link placeholders with an external link
+ * @param string $template
+ * @param string $url
+ * @return string
+ */
 function disable_emails_external_link($template, $url) {
 	$search = array(
 		'{{a}}',

@@ -10,16 +10,16 @@ if (!defined('ABSPATH')) {
 }
 
 /**
-* mock of PHPMailer, to support hookers that need to access PHPMailer properties
-* uses a private instance of PHPMailer, but doesn't permit sending emails through it
-*/
+ * mock of PHPMailer, to support hookers that need to access PHPMailer properties
+ * uses a private instance of PHPMailer, but doesn't permit sending emails through it
+ */
 class PHPMailerMock {
 
 	private $phpmailer;
 
 	/**
-	* initialise mock object, creating private PHPMailer instance to handle allowed calls and properties
-	*/
+	 * initialise mock object, creating private PHPMailer instance to handle allowed calls and properties
+	 */
 	public function __construct() {
 
 		require_once ABSPATH . WPINC . '/PHPMailer/PHPMailer.php';
@@ -90,14 +90,14 @@ class PHPMailerMock {
 	}
 
 	/**
-	* simulate WordPress call to PHPMailer
-	* @param string|array $to Array or comma-separated list of email addresses to send message.
-	* @param string $subject Email subject
-	* @param string $message Message contents
-	* @param string|array $headers Optional. Additional headers.
-	* @param string|array $attachments Optional. Files to attach.
-	* @return bool
-	*/
+	 * simulate WordPress call to PHPMailer
+	 * @param string|array $to Array or comma-separated list of email addresses to send message.
+	 * @param string $subject Email subject
+	 * @param string $message Message contents
+	 * @param string|array $headers Optional. Additional headers.
+	 * @param string|array $attachments Optional. Files to attach.
+	 * @return bool
+	 */
 	public function wpmail($to, $subject, $message, $headers, $attachments) {
 		$settings = get_plugin_settings();
 
@@ -206,9 +206,9 @@ class PHPMailerMock {
 	}
 
 	/**
-	* set a different From address and potentially, name
-	* @param string $from
-	*/
+	 * set a different From address and potentially, name
+	 * @param string $from
+	 */
 	protected function _setFrom($from) {
 		$recipient = new EmailAddress($from);
 		$this->phpmailer->FromName = trim($recipient->name);
@@ -216,9 +216,9 @@ class PHPMailerMock {
 	}
 
 	/**
-	* add To address(es)
-	* @param string|array $to
-	*/
+	 * add To address(es)
+	 * @param string|array $to
+	 */
 	protected function _addTo($to) {
 		$recipients = is_array($to) ? $to : explode(',', $to);
 
@@ -229,9 +229,9 @@ class PHPMailerMock {
 	}
 
 	/**
-	* add CC address(es)
-	* @param array $addresses
-	*/
+	 * add CC address(es)
+	 * @param array $addresses
+	 */
 	protected function _addCC($addresses) {
 		foreach ($addresses as $address) {
 			try {
@@ -245,9 +245,9 @@ class PHPMailerMock {
 	}
 
 	/**
-	* add BCC addresses
-	* @param array $addresses
-	*/
+	 * add BCC addresses
+	 * @param array $addresses
+	 */
 	protected function _addBCC($addresses) {
 		foreach ($addresses as $address) {
 			try {
@@ -261,9 +261,9 @@ class PHPMailerMock {
 	}
 
 	/**
-	* set content type
-	* @param string $content_type
-	*/
+	 * set content type
+	 * @param string $content_type
+	 */
 	protected function _setContentType($content_type) {
 		if ( strpos( $content_type, ';' ) !== false ) {
 			list( $type, $charset ) = explode( ';', $content_type );
@@ -280,26 +280,26 @@ class PHPMailerMock {
 	}
 
 	/**
-	* passthrough for setting PHPMailer properties
-	* @param string $name
-	* @param mixed $value
-	*/
+	 * passthrough for setting PHPMailer properties
+	 * @param string $name
+	 * @param mixed $value
+	 */
 	public function __set($name, $value) {
 		$this->phpmailer->$name = $value;
 	}
 
 	/**
-	* passthrough for getting PHPMailer properties
-	* @param string $name
-	* @return mixed
-	*/
+	 * passthrough for getting PHPMailer properties
+	 * @param string $name
+	 * @return mixed
+	 */
 	public function __get($name) {
 		return $this->phpmailer->$name;
 	}
 
 	/**
-	* catchall for methods we just want to ignore
-	*/
+	 * catchall for methods we just want to ignore
+	 */
 	public function __call($name, $args) {
 		if (isset($this->allowed_calls[$name])) {
 
@@ -332,8 +332,8 @@ class PHPMailerMock {
 	}
 
 	/**
-	* catchall for methods we just want to ignore
-	*/
+	 * catchall for methods we just want to ignore
+	 */
 	public static function __callStatic($name, $args) {
 		return false;
 	}

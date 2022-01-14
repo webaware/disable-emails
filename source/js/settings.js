@@ -13,11 +13,11 @@
 	});
 
 	/**
-	* add an event handler to element, if element is found
-	* @param {String} selector
-	* @param {String} event
-	* @param {Function} handler
-	*/
+	 * add an event handler to element, if element is found
+	 * @param {String} selector
+	 * @param {String} event
+	 * @param {Function} handler
+	 */
 	function addHandler(selector, event, handler) {
 		const element = document.getElementById(selector);
 		if (element) {
@@ -26,9 +26,9 @@
 	}
 
 	/**
-	* reload page with request to enable / disable the must-use plugin
-	* @param {String} action
-	*/
+	 * reload page with request to enable / disable the must-use plugin
+	 * @param {String} action
+	 */
 	function mustUse(action) {
 		document.location = settings.mu_url + "&action=" + action;
 	}
