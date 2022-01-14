@@ -2,7 +2,8 @@
 	"require-dev": {
 		"phpcompatibility/php-compatibility": "*",
 		"squizlabs/php_codesniffer": "*",
-		"dealerdirect/phpcodesniffer-composer-installer": "*"
+		"dealerdirect/phpcodesniffer-composer-installer": "*",
+		"yoast/wp-test-utils": "^1.0"
 	},
 	"prefer-stable" : true,
 	"config": {

@@ -1,6 +1,9 @@
-/.svn
-/.vscode
-/.wordpress.org
-/.dist
-/node_modules
-/vendor
+/.phpunit.result.cache
+/.svn/
+/.vscode/
+/.wordpress.org/
+/.dist/
+/bin/
+/node_modules/
+/vendor/
+/tests/.env

@@ -9,10 +9,13 @@ SNIFF_PHP			= vendor/bin/phpcs -ps
 SNIFF_PHP_5			= $(SNIFF_PHP) --standard=phpcs-5.2.xml
 SRC_PHP				= $(shell $(FIND_PHP) -print)
 
+# environment variables for unit tests
+export WP_PLUGIN_DIR	= $(shell cd ..; pwd)
+
 all:
 	@echo please see Makefile for available builds / commands
 
-.PHONY: all lint lint-js lint-php zip wpsvn js
+.PHONY: all lint lint-js lint-php test zip wpsvn js
 
 # release product
 
@@ -51,3 +54,12 @@ lint-php:
 	@$(LINT_PHP)
 	@$(SNIFF_PHP)
 	@$(SNIFF_PHP_5)
+
+# tests
+
+test: /tmp/wordpress-tests-lib
+	php8.0 vendor/bin/phpunit
+
+/tmp/wordpress-tests-lib:
+	bin/install-wp-tests.sh wp_test website website localhost nightly
+	sed -i "2i define('WP_DEBUG_LOG', __DIR__ . '/debug.log');" /tmp/wordpress-tests-lib/wp-tests-config.php

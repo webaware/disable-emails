@@ -16,7 +16,7 @@ class EmailAddress {
 
 	public function __construct($email_address) {
 		if (preg_match('/(.*)<(.+)>/', $email_address, $matches) && count($matches) === 3) {
-			$this->name		= $matches[1];
+			$this->name		= rtrim($matches[1], ' ');
 			$this->address	= $matches[2];
 		}
 		else {
