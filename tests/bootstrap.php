@@ -9,6 +9,7 @@ if (getenv('WP_PLUGIN_DIR') !== false) {
 	define('WP_PLUGIN_DIR', getenv('WP_PLUGIN_DIR'));
 }
 
+require_once __DIR__ . '/includes/EmailLog.php';
 require_once "$plugin_main_dir/vendor/yoast/wp-test-utils/src/WPIntegration/bootstrap-functions.php";
 
 $_tests_dir = WPIntegration\get_path_to_wp_test_dir();

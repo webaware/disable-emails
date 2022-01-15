@@ -5,8 +5,7 @@ use Yoast\WPTestUtils\BrainMonkey\TestCase;
 
 /**
  * test sending emails; should "succeed" but the emails should not be received
- * NB: the automated test cannot test for this, email accounts must be checked after running tests
- * TODO: implement email logging via hooks, and verify addresses
+ * NB: the automated test cannot test sending is blocked; email accounts must be checked after running tests
  */
 class SendEmailTest extends TestCase {
 
@@ -21,6 +20,35 @@ class SendEmailTest extends TestCase {
 		$this->assertArrayHasKey('email_recipient_2', $plugin_test_env);
 		$this->assertArrayHasKey('email_recipient_3', $plugin_test_env);
 		$this->assertArrayHasKey('email_recipient_4', $plugin_test_env);
+	}
+
+	/**
+	 * single-recipient test with simple addresses
+	 * @depends testEnvironment
+	 */
+	public function testSingleSimple() {
+		global $plugin_test_env;
+
+		$from		= $plugin_test_env['email_sender'];
+		$to			= $plugin_test_env['email_recipient_1'];
+		$subject	= 'Test single recipient';
+		$message	= 'Test sending email with a single recipient';
+
+		$headers	= [
+			"From: $from",
+		];
+
+		$logger = new EmailLog();
+		$logger->addHooks();
+		wp_mail($to, $subject, $message, $headers);
+		$logger->removeHooks();
+
+		$this->assertEquals($logger->from, $from);
+		$this->assertEquals($logger->to, $to);
+		$this->assertEquals($logger->cc, '');
+		$this->assertEquals($logger->bcc, '');
+		$this->assertEquals($logger->subject, $subject);
+		$this->assertEquals($logger->message, $message);
 	}
 
 	/**
@@ -39,7 +67,17 @@ class SendEmailTest extends TestCase {
 			"From: $from",
 		];
 
-		$this->assertTrue(wp_mail($to, $subject, $message, $headers));
+		$logger = new EmailLog();
+		$logger->addHooks();
+		wp_mail($to, $subject, $message, $headers);
+		$logger->removeHooks();
+
+		$this->assertEquals($logger->from, $from);
+		$this->assertEquals($logger->to, $to);
+		$this->assertEquals($logger->cc, '');
+		$this->assertEquals($logger->bcc, '');
+		$this->assertEquals($logger->subject, $subject);
+		$this->assertEquals($logger->message, $message);
 	}
 
 	/**
@@ -62,7 +100,17 @@ class SendEmailTest extends TestCase {
 			"BCC: $bcc",
 		];
 
-		$this->assertTrue(wp_mail($to, $subject, $message, $headers));
+		$logger = new EmailLog();
+		$logger->addHooks();
+		wp_mail($to, $subject, $message, $headers);
+		$logger->removeHooks();
+
+		$this->assertEquals($logger->from, $from);
+		$this->assertEquals($logger->to, $to);
+		$this->assertEquals($logger->cc, $cc);
+		$this->assertEquals($logger->bcc, $bcc);
+		$this->assertEquals($logger->subject, $subject);
+		$this->assertEquals($logger->message, $message);
 	}
 
 	/**
@@ -86,7 +134,17 @@ class SendEmailTest extends TestCase {
 			"From: $from",
 		];
 
-		$this->assertTrue(wp_mail($to, $subject, $message, $headers));
+		$logger = new EmailLog();
+		$logger->addHooks();
+		wp_mail($to, $subject, $message, $headers);
+		$logger->removeHooks();
+
+		$this->assertEquals($logger->from, $from);
+		$this->assertEquals($logger->to, $to);
+		$this->assertEquals($logger->cc, '');
+		$this->assertEquals($logger->bcc, '');
+		$this->assertEquals($logger->subject, $subject);
+		$this->assertEquals($logger->message, $message);
 	}
 
 }
