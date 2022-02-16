@@ -2,7 +2,7 @@
 
 ## Changelog
 
-### 1.8.0, soon...
+### 1.8.0, 2022-02-16
 
 * fixed: mock PHPMailer object did not have recipient addresses for developers to inspect (thanks, [SpartakusMd](https://wordpress.org/support/users/spartakusmd/)!)
 
