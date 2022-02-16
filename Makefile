@@ -15,7 +15,7 @@ export WP_PLUGIN_DIR	= $(shell cd ..; pwd)
 all:
 	@echo please see Makefile for available builds / commands
 
-.PHONY: all lint lint-js lint-php test zip wpsvn js
+.PHONY: all lint lint-js lint-php test test-php7 test-php8 zip wpsvn js
 
 # release product
 
@@ -57,7 +57,12 @@ lint-php:
 
 # tests
 
-test: /tmp/wordpress-tests-lib
+test: test-php7 test-php8
+
+test-php7: /tmp/wordpress-tests-lib
+	php7.4 vendor/bin/phpunit
+
+test-php8: /tmp/wordpress-tests-lib
 	php8.0 vendor/bin/phpunit
 
 /tmp/wordpress-tests-lib:
