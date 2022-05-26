@@ -32,6 +32,7 @@ WordPress websites can send emails for a variety of reasons -- e.g user registra
 Many thanks to the generous efforts of our translators:
 
 * Chinese (zh-CN) -- [Cai_Miao](https://profiles.wordpress.org/cai_miao) and [the Chinese translation team](https://translate.wordpress.org/locale/zh-cn/default/wp-plugins/disable-emails/)
+* Chinese (zh-TW) -- [the Chinese (Taiwan) translation team](https://translate.wordpress.org/locale/zh-tw/default/wp-plugins/disable-emails/)
 * Czech (cs-CZ) -- [Rudolf Klusal](http://www.klusik.cz/)
 * Dutch (nl_NL) -- [the Dutch translation team](https://translate.wordpress.org/locale/nl/default/wp-plugins/disable-emails/)
 * English (en_CA) -- [the English (Canadian) translation team](https://translate.wordpress.org/locale/en-ca/default/wp-plugins/disable-emails/)
