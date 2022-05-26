@@ -1,22 +1,23 @@
 {
-  "name": "disable-emails",
-  "version": "1.8.0",
-  "description": "Disable Emails",
-  "main": "Gruntfile.js",
-  "devDependencies": {
-    "@babel/cli": "^7.16.8",
-    "@babel/core": "^7.16.7",
-    "@babel/preset-env": "^7.16.8",
-    "grunt": "^1.4.1",
-    "grunt-babel": "^8.0.0",
-    "grunt-contrib-uglify": "^5.0.1",
-    "grunt-eslint": "^24.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/webaware/disable-emails"
-  },
-  "author": "WebAware https://shop.webaware.com.au/",
-  "license": "GPL-2.0",
-  "homepage": "https://wordpress.org/plugins/disable-emails/"
+	"name": "disable-emails",
+	"version": "1.8.0",
+	"description": "Disable Emails",
+	"browserslist": [
+		"> 0.5%",
+		"not dead"
+	],
+	"devDependencies": {
+		"@babel/cli": "^7.17.10",
+		"@babel/core": "^7.18.2",
+		"@babel/preset-env": "^7.18.2",
+		"eslint": "^8.16.0",
+		"uglify-js": "^3.15.5"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/webaware/disable-emails"
+	},
+	"author": "WebAware https://shop.webaware.com.au/",
+	"license": "GPL-2.0",
+	"homepage": "https://wordpress.org/plugins/disable-emails/"
 }
