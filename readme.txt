@@ -35,6 +35,7 @@ Many thanks to the generous efforts of our translators:
 * Czech (cs-CZ) -- [Rudolf Klusal](http://www.klusik.cz/)
 * Dutch (nl_NL) -- [the Dutch translation team](https://translate.wordpress.org/locale/nl/default/wp-plugins/disable-emails/)
 * English (en_CA) -- [the English (Canadian) translation team](https://translate.wordpress.org/locale/en-ca/default/wp-plugins/disable-emails/)
+* English (en_GB) -- [the English (UK) translation team](https://translate.wordpress.org/locale/en-gb/default/wp-plugins/disable-emails/)
 * French (fr_FR) -- [the French translation team](https://translate.wordpress.org/locale/fr/default/wp-plugins/disable-emails/)
 * Korean (ko_KR) -- [the Korean translation team](https://translate.wordpress.org/locale/ko/default/wp-plugins/disable-emails/)
 * Japanese (ja) -- [Cai_Miao](https://profiles.wordpress.org/cai_miao) and [the Japanese translation team](https://translate.wordpress.org/locale/ja/default/wp-plugins/disable-emails/)
@@ -91,6 +92,8 @@ fixed fatal exception when an email address was invalid
 
 The full changelog can be found [on GitHub](https://github.com/webaware/disable-emails/blob/master/changelog.md). Recent entries:
 
-### 1.8.1, 2022-05-26
+### 1.8.1
+
+Released 2022-05-26
 
 * fixed: fatal exception when an email address was invalid
