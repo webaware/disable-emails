@@ -6,9 +6,9 @@ Author URI: https://shop.webaware.com.au/
 Donate link: https://shop.webaware.com.au/donations/?donation_for=Disable+Emails
 Tags: disable emails, block emails
 Requires at least: 5.5
-Tested up to: 5.9
+Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 1.8.0
+Stable tag: 1.8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,14 +83,14 @@ NB: if you activate the must-use plugin on a multisite, it will stop emails on a
 
 ## Upgrade Notice
 
-### 1.8.0
+### 1.8.1
 
-mock PHPMailer object now has recipient addresses for developers to inspect
+fixed fatal exception when an email address was invalid
 
 ## Changelog
 
 The full changelog can be found [on GitHub](https://github.com/webaware/disable-emails/blob/master/changelog.md). Recent entries:
 
-### 1.8.0, 2022-02-16
+### 1.8.1, 2022-05-26
 
-* fixed: mock PHPMailer object did not have recipient addresses for developers to inspect (thanks, [SpartakusMd](https://wordpress.org/support/users/spartakusmd/)!)
+* fixed: fatal exception when an email address was invalid
