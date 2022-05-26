@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.8.1, 2022-05-26
+
+* fixed: fatal exception when an email address was invalid
+
 ### 1.8.0, 2022-02-16
 
 * fixed: mock PHPMailer object did not have recipient addresses for developers to inspect (thanks, [SpartakusMd](https://wordpress.org/support/users/spartakusmd/)!)

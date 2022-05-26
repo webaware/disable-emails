@@ -147,4 +147,31 @@ class SendEmailTest extends TestCase {
 		$this->assertEquals($logger->message, $message);
 	}
 
+	/**
+	 * single-recipient, bad addresses
+	 * @depends testEnvironment
+	 */
+	public function testBadAddresses() {
+		$from		= 'Bad Test 1 <root>';
+		$subject	= 'Test bad addresses';
+		$message	= 'Test sending email with bad addresses';
+
+		$headers	= [
+			"From: $from",
+		];
+
+		$logger = new EmailLog();
+		$logger->addHooks();
+
+		$to			= '';
+		wp_mail($to, $subject, $message, $headers);
+		$this->assertEquals($logger->to, $to);
+
+		$to			= 'local_user';
+		wp_mail($to, $subject, $message, $headers);
+		$this->assertEquals($logger->to, $to);
+
+		$logger->removeHooks();
+	}
+
 }

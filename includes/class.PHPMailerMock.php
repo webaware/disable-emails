@@ -123,7 +123,12 @@ class PHPMailerMock {
 		}
 
 		// allow hookers to see recipient addresses on mock PHPMailer object
-		$this->_addTo($to);
+		try {
+			$this->_addTo($to);
+		}
+		catch (phpmailerException $e) {
+			// NOP
+		}
 
 		// set mail's subject and body
 		$this->phpmailer->Subject = $subject;
@@ -148,27 +153,32 @@ class PHPMailerMock {
 				$name    = trim( $name    );
 				$content = trim( $content );
 
-				switch ( strtolower( $name ) ) {
-					// Mainly for legacy -- process a From: header if it's there
-					case 'from':
-						$this->_setFrom( $content );
-						break;
+				try {
+					switch ( strtolower( $name ) ) {
+						// Mainly for legacy -- process a From: header if it's there
+						case 'from':
+							$this->_setFrom( $content );
+							break;
 
-					case 'cc':
-						$this->_addCC( explode( ',', $content ) );
-						break;
+						case 'cc':
+							$this->_addCC( explode( ',', $content ) );
+							break;
 
-					case 'bcc':
-						$this->_addBCC( explode( ',', $content ) );
-						break;
+						case 'bcc':
+							$this->_addBCC( explode( ',', $content ) );
+							break;
 
-					case 'content-type':
-						$this->_setContentType( $content );
-						break;
+						case 'content-type':
+							$this->_setContentType( $content );
+							break;
 
-					default:
-						$this->phpmailer->AddCustomHeader( "$name: $content" );
-						break;
+						default:
+							$this->phpmailer->AddCustomHeader( "$name: $content" );
+							break;
+					}
+				}
+				catch (phpmailerException $e) {
+					continue;
 				}
 			}
 		}
@@ -184,7 +194,6 @@ class PHPMailerMock {
 				}
 			}
 		}
-
 
 		if ($settings['wp_mail_from']) {
 			$this->phpmailer->From = apply_filters( 'wp_mail_from', $this->phpmailer->From );
