@@ -1,5 +1,5 @@
 # Disable Emails
-Contributors: webaware
+Contributors: webaware, BrianHenryIE
 Plugin Name: Disable Emails
 Plugin URI: https://shop.webaware.com.au/downloads/disable-emails/
 Author URI: https://shop.webaware.com.au/
