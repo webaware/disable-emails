@@ -16,6 +16,7 @@
 	<config name="testVersion" value="5.6-"/>
 
 	<rule ref="PHPCompatibility" />
+	<rule ref="Modernize" />
 
 	<rule ref="Generic.Debug.ClosureLinter" />
 	<rule ref="Generic.Files.LineEndings" />
@@ -26,6 +27,8 @@
 	<rule ref="Generic.PHP.DisallowShortOpenTag.Found" />
 	<rule ref="Generic.PHP.NoSilencedErrors" />
 	<rule ref="Generic.Strings.UnnecessaryStringConcat" />
+	<rule ref="Generic.VersionControl.GitMergeConflict"/>
+	<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing"/>
 	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
 
 	<rule ref="Generic.PHP.ForbiddenFunctions">
@@ -62,5 +65,21 @@
 	<rule ref="Squiz.PHP.DiscouragedFunctions" />
 	<rule ref="Squiz.PHP.NonExecutableCode" />
 	<rule ref="Squiz.Strings.DoubleQuoteUsage.NotRequired" />
+
+	<!-- from PHPCSExtra https://github.com/PHPCSStandards/PHPCSExtra -->
+	<rule ref="NormalizedArrays.Arrays.CommaAfterLast" />
+	<rule ref="Universal.Arrays.DuplicateArrayKey" />
+	<rule ref="Universal.Arrays.MixedArrayKeyTypes" />
+	<rule ref="Universal.CodeAnalysis.ConstructorDestructorReturn" />
+	<rule ref="Universal.CodeAnalysis.ForeachUniqueAssignment" />
+	<rule ref="Universal.CodeAnalysis.NoEchoSprintf" />
+	<rule ref="Universal.CodeAnalysis.StaticInFinalClass" />
+	<rule ref="Universal.Constants.UppercaseMagicConstants" />
+	<!-- <rule ref="Universal.FunctionDeclarations.NoLongClosures" /> -->
+	<rule ref="Universal.NamingConventions.NoReservedKeywordParameterNames" />
+	<rule ref="Universal.Operators.DisallowLogicalAndOr" />
+	<rule ref="Universal.Operators.StrictComparisons" />
+	<rule ref="Universal.PHP.OneStatementInShortEchoTag" />
+	<rule ref="Universal.UseStatements.NoLeadingBackslash" />
 
 </ruleset>
