@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.8.2, 2023-11-22
+
+* fixed: deprecation warnings in PHP 8.1+
+
 ### 1.8.1, 2022-05-26
 
 * fixed: fatal exception when an email address was invalid

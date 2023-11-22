@@ -16,6 +16,7 @@ if (!defined('ABSPATH')) {
 class PHPMailerMock {
 
 	private $phpmailer;
+	private $allowed_calls;
 
 	/**
 	 * initialise mock object, creating private PHPMailer instance to handle allowed calls and properties
