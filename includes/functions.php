@@ -2,7 +2,7 @@
 
 namespace webaware\disable_emails;
 
-use \Exception;
+use Exception;
 
 if (!defined('ABSPATH')) {
 	exit;

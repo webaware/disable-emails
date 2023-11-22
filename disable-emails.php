@@ -37,6 +37,7 @@ if (defined('DISABLE_EMAILS_PLUGIN_FILE')) {
 	return;
 }
 
+// phpcs:disable Modernize.FunctionCalls.Dirname.FileConstant
 define('DISABLE_EMAILS_PLUGIN_FILE', __FILE__);
 define('DISABLE_EMAILS_PLUGIN_ROOT', dirname(__FILE__) . '/');
 define('DISABLE_EMAILS_PLUGIN_NAME', basename(dirname(__FILE__)) . '/' . basename(__FILE__));

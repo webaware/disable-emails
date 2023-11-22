@@ -2,7 +2,7 @@
 
 namespace webaware\disable_emails;
 
-use \DisableEmailsRequires as Requires;
+use DisableEmailsRequires as Requires;
 
 if (!defined('ABSPATH')) {
 	exit;
@@ -278,7 +278,7 @@ class Plugin {
 	 * @param string|bool $return
 	 * @return string
 	 */
-	public function forceEventsManagerDisable($return) {
+	public function forceEventsManagerDisable($return_value) {
 		return 'wp_mail';
 	}
 
