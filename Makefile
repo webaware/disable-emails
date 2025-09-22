@@ -53,16 +53,14 @@ lint-js:
 
 lint-php:
 	@echo PHP lint...
-	@$(FIND_PHP) -exec php7.3 -l '{}' \; >/dev/null
+	@$(FIND_PHP) -exec php7.4 -l '{}' \; >/dev/null
+	@$(FIND_PHP) -exec php8.4 -l '{}' \; >/dev/null
 	@vendor/bin/phpcs -ps
 	@vendor/bin/phpcs -ps --standard=phpcs-5.2.xml
 
 # tests
 
-test: test-php73 test-php80 test-php81
-
-test-php73: /tmp/wordpress-tests-lib
-	php7.3 vendor/bin/phpunit
+test: test-php74 test-php84
 
 test-php74: /tmp/wordpress-tests-lib
 	php7.4 vendor/bin/phpunit
@@ -75,6 +73,12 @@ test-php81: /tmp/wordpress-tests-lib
 
 test-php82: /tmp/wordpress-tests-lib
 	php8.2 vendor/bin/phpunit
+
+test-php83: /tmp/wordpress-tests-lib
+	php8.3 vendor/bin/phpunit
+
+test-php84: /tmp/wordpress-tests-lib
+	php8.4 vendor/bin/phpunit
 
 /tmp/wordpress-tests-lib:
 	bin/install-wp-tests.sh wp_test website website localhost nightly

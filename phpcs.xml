@@ -18,7 +18,6 @@
 	<rule ref="PHPCompatibility" />
 	<rule ref="Modernize" />
 
-	<rule ref="Generic.Debug.ClosureLinter" />
 	<rule ref="Generic.Files.LineEndings" />
 	<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
 	<!-- <rule ref="Generic.Metrics.CyclomaticComplexity" /> -->
@@ -30,6 +29,7 @@
 	<rule ref="Generic.VersionControl.GitMergeConflict"/>
 	<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing"/>
 	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
 
 	<rule ref="Generic.PHP.ForbiddenFunctions">
 		<properties>
@@ -42,16 +42,16 @@
 		</properties>
 	</rule>
 
-	<rule ref="Generic.Arrays.DisallowLongArraySyntax">
-		<exclude-pattern>disable-emails.php</exclude-pattern>
-		<exclude-pattern>includes/class.Requires.php</exclude-pattern>
-		<exclude-pattern>includes/functions-global.php</exclude-pattern>
-	</rule>
-
 	<rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing">
 		<properties>
 			<property name="ignoreNewlines" value="true" />
 		</properties>
+	</rule>
+
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax">
+		<exclude-pattern>disable-emails.php</exclude-pattern>
+		<exclude-pattern>includes/class.Requires.php</exclude-pattern>
+		<exclude-pattern>includes/functions-global.php</exclude-pattern>
 	</rule>
 
 	<rule ref="Generic.WhiteSpace.ScopeIndent">
@@ -67,19 +67,29 @@
 	<rule ref="Squiz.Strings.DoubleQuoteUsage.NotRequired" />
 
 	<!-- from PHPCSExtra https://github.com/PHPCSStandards/PHPCSExtra -->
-	<rule ref="NormalizedArrays.Arrays.CommaAfterLast" />
+	<rule ref="NormalizedArrays" />
 	<rule ref="Universal.Arrays.DuplicateArrayKey" />
 	<rule ref="Universal.Arrays.MixedArrayKeyTypes" />
+	<rule ref="Universal.Arrays.MixedKeyedUnkeyedArray" />
+	<rule ref="Universal.Classes.ModifierKeywordOrder" />
 	<rule ref="Universal.CodeAnalysis.ConstructorDestructorReturn" />
 	<rule ref="Universal.CodeAnalysis.ForeachUniqueAssignment" />
+	<rule ref="Universal.CodeAnalysis.NoDoubleNegative" />
 	<rule ref="Universal.CodeAnalysis.NoEchoSprintf" />
 	<rule ref="Universal.CodeAnalysis.StaticInFinalClass" />
+	<rule ref="Universal.Constants.LowercaseClassResolutionKeyword" />
+	<rule ref="Universal.Constants.ModifierKeywordOrder" />
 	<rule ref="Universal.Constants.UppercaseMagicConstants" />
 	<!-- <rule ref="Universal.FunctionDeclarations.NoLongClosures" /> -->
+	<rule ref="Universal.Namespaces.DisallowDeclarationWithoutName" />
 	<rule ref="Universal.NamingConventions.NoReservedKeywordParameterNames" />
 	<rule ref="Universal.Operators.DisallowLogicalAndOr" />
 	<rule ref="Universal.Operators.StrictComparisons" />
+	<rule ref="Universal.PHP.LowercasePHPTag" />
 	<rule ref="Universal.PHP.OneStatementInShortEchoTag" />
+	<rule ref="Universal.UseStatements.DisallowMixedGroupUse" />
+	<rule ref="Universal.UseStatements.LowercaseFunctionConst" />
 	<rule ref="Universal.UseStatements.NoLeadingBackslash" />
+	<rule ref="Universal.UseStatements.NoUselessAliases" />
 
 </ruleset>
