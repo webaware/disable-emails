@@ -120,7 +120,14 @@ class PHPMailerMock {
 
 		// let hookers change the function arguments if settings allow
 		if ($settings['wp_mail']) {
-			extract( apply_filters( 'wp_mail', compact( 'to', 'subject', 'message', 'headers', 'attachments' ) ), EXTR_IF_EXISTS );
+			$args = apply_filters('wp_mail', compact('to', 'subject', 'message', 'headers', 'attachments'));
+			if (is_array($args)) {
+				extract($args, EXTR_IF_EXISTS);
+			}
+			else {
+				// another plugin has clobbered the wp_mail values
+				return false;
+			}
 		}
 
 		// allow hookers to see recipient addresses on mock PHPMailer object
