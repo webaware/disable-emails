@@ -3,7 +3,7 @@
 Plugin Name: Disable Emails
 Plugin URI: https://shop.webaware.com.au/downloads/disable-emails/
 Description: Stop WordPress from sending any emails. ANY!
-Version: 1.8.2
+Version: 1.8.3-dev
 Author: WebAware
 Author URI: https://shop.webaware.com.au/
 Text Domain: disable-emails
@@ -11,7 +11,7 @@ Domain Path: /languages/
 */
 
 /*
-copyright (c) 2014-2023 WebAware Pty Ltd (email : support@webaware.com.au)
+copyright (c) 2014-2025 WebAware Pty Ltd (email : support@webaware.com.au)
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -42,7 +42,7 @@ define('DISABLE_EMAILS_PLUGIN_FILE', __FILE__);
 define('DISABLE_EMAILS_PLUGIN_ROOT', dirname(__FILE__) . '/');
 define('DISABLE_EMAILS_PLUGIN_NAME', basename(dirname(__FILE__)) . '/' . basename(__FILE__));
 define('DISABLE_EMAILS_MIN_PHP', '5.6');
-define('DISABLE_EMAILS_VERSION', '1.8.2');
+define('DISABLE_EMAILS_VERSION', '1.8.3-dev');
 
 require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/functions-global.php';
 require DISABLE_EMAILS_PLUGIN_ROOT . 'includes/class.Requires.php';

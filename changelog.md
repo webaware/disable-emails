@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 1.8.3, coming soon…
+
+* fixed: handle a non-array return from `wp_mail` filter hook
+
 ### 1.8.2, 2023-11-22
 
 * fixed: deprecation warnings in PHP 8.1+

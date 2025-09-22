@@ -1,6 +1,6 @@
 {
 	"name": "disable-emails",
-	"version": "1.8.0",
+	"version": "1.8.3",
 	"description": "Disable Emails",
 	"browserslist": [
 		"> 0.5%",
