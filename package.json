@@ -7,11 +7,11 @@
 		"not dead"
 	],
 	"devDependencies": {
-		"@babel/cli": "^7.28.3",
-		"@babel/core": "^7.28.4",
-		"@babel/preset-env": "^7.28.3",
+		"@babel/cli": "^7.28.6",
+		"@babel/core": "^7.28.6",
+		"@babel/preset-env": "^7.28.6",
 		"confusing-browser-globals": "^1.0.11",
-		"eslint": "^9.36.0",
+		"eslint": "^9.39.2",
 		"uglify-js": "^3.19.3"
 	},
 	"repository": {
