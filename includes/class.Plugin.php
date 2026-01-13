@@ -43,7 +43,6 @@ class Plugin {
 		$this->wpmailReplaced = class_exists(__NAMESPACE__ . '\\PHPMailerMock', false);
 
 		// add hooks
-		add_action('init', 'disable_emails_load_text_domain');
 		add_action('admin_init', [$this, 'adminInit']);
 		add_action('admin_menu', [$this, 'adminMenu']);
 		add_action('admin_enqueue_scripts', [$this, 'settingsScripts']);
