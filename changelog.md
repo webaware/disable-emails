@@ -2,7 +2,7 @@
 
 ## Changelog
 
-### 1.8.3, coming soon…
+### 1.8.3, 2026-01-13
 
 * fixed: handle a non-array return from `wp_mail` filter hook
 

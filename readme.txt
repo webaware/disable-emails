@@ -6,9 +6,9 @@ Author URI: https://shop.webaware.com.au/
 Donate link: https://shop.webaware.com.au/donations/?donation_for=Disable+Emails
 Tags: disable emails, block emails
 Requires at least: 5.5
-Tested up to: 6.4
+Tested up to: 6.9
 Requires PHP: 5.6
-Stable tag: 1.8.2
+Stable tag: 1.8.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -85,16 +85,16 @@ NB: if you activate the must-use plugin on a multisite, it will stop emails on a
 
 ## Upgrade Notice
 
-### 1.8.2
+### 1.8.3
 
-fixed deprecation warnings in PHP 8.1+
+handle a non-array return from `wp_mail` filter hook
 
 ## Changelog
 
 The full changelog can be found [on GitHub](https://github.com/webaware/disable-emails/blob/master/changelog.md). Recent entries:
 
-### 1.8.2
+### 1.8.3
 
-Released 2023-11-22
+Released 2026-01-13
 
-* fixed: deprecation warnings in PHP 8.1+
+* fixed: handle a non-array return from `wp_mail` filter hook
